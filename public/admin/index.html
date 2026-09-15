@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>داشبورد مدیریت | آقای موبایل</title>
+<link rel="icon" type="image/png" href="/assets/mr-mobile-logo.png">
+  <link rel="apple-touch-icon" href="/assets/mr-mobile-logo.png">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+<div id="login" class="login-screen">
+  <div class="login-card">
+    <div class="brand-mark">MR</div><div class="brand-title">آقای موبایل</div><small>MR MOBILE STORE</small>
+    <h1>ورود به پنل مدیریت</h1><p>برای مدیریت فروشگاه وارد حساب مدیریت شوید.</p>
+    <input id="pass" type="password" placeholder="رمز مدیریت" autocomplete="current-password">
+    <button class="primary full" onclick="login()">ورود به پنل</button><div id="err" class="error"></div>
+  </div>
+</div>
+
+<div id="app" hidden>
+  <aside class="sidebar">
+    <div class="side-brand"><div class="brand-mark">MR</div><div><strong>آقای موبایل</strong><small>MR MOBILE STORE</small></div></div>
+    <nav>
+      <button class="nav-item active" data-section="dashboard" onclick="showSection('dashboard')"><span>⌂</span> داشبورد</button>
+      <button class="nav-item" data-section="orders" onclick="showSection('orders')"><span>🛒</span> مدیریت سفارش‌ها <b id="navNew">0</b></button>
+      <button class="nav-item" data-section="products" onclick="showSection('products')"><span>▣</span> مدیریت محصولات</button>
+      <button class="nav-item" data-section="users" onclick="showSection('users')"><span>♙</span> مدیریت کاربران</button>
+      <button class="nav-item" data-section="reports" onclick="showSection('reports')"><span>▥</span> گزارش‌ها</button>
+      <button class="nav-item" data-section="payments" onclick="showSection('payments')"><span>💳</span> پرداخت‌ها <b id="navPayments">0</b></button>
+      <button class="nav-item" data-section="settings" onclick="showSection('settings')"><span>⚙</span> تنظیمات</button>
+    </nav>
+    <div class="side-promo"><div class="promo-icon">♛</div><strong>فروش بیشتر<br>با مدیریت بهتر</strong><small>MR MOBILE</small></div>
+    <button class="logout" onclick="logout()">↪ خروج از حساب</button>
+  </aside>
+
+  <section class="workspace">
+    <header class="topbar">
+      <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+      <div class="search"><span>⌕</span><input id="globalSearch" placeholder="جستجوی سفارش، کاربر یا محصول..." oninput="globalFilter()"></div>
+      <div class="top-actions"><button class="icon-btn" onclick="loadAll()">↻</button><button class="bell" onclick="showSection('orders')">♧<i id="bellCount">0</i></button><div class="admin-user"><div class="avatar">●</div><div><strong>مدیر سایت</strong><small>مدیریت فروشگاه</small></div></div></div>
+    </header>
+
+    <main class="content">
+      <section id="dashboard" class="page active-page">
+        <div class="page-head"><div><h1>خوش آمدید، مدیر عزیز 👋</h1><p>اینجا می‌توانید فروشگاه خود را به‌صورت کامل مدیریت کنید.</p></div><div class="today">امروز<br><b id="todayText"></b></div></div>
+        <div class="stats-grid">
+          <div class="stat-card purple"><span class="stat-icon">▣</span><div><small>فروش کل</small><strong id="statSales">۰ تومان</strong><em id="salesChange">اطلاعات فروش</em></div></div>
+          <div class="stat-card gold"><span class="stat-icon">□</span><div><small>کل محصولات</small><strong id="statProducts">۰</strong><em>محصول ثبت شده</em></div></div>
+          <div class="stat-card blue"><span class="stat-icon">♙</span><div><small>کل کاربران</small><strong id="statUsers">۰</strong><em>کاربر ثبت‌نام شده</em></div></div>
+          <div class="stat-card green"><span class="stat-icon">🛒</span><div><small>سفارش‌های جدید</small><strong id="statNew">۰</strong><em>در انتظار بررسی</em></div></div>
+        </div>
+        <div class="two-col">
+          <div class="panel orders-panel"><div class="panel-head"><h2>آخرین سفارش‌ها</h2><button class="ghost" onclick="showSection('orders')">مشاهده همه ←</button></div><div id="recentOrders" class="table-wrap"></div></div>
+          <div class="panel"><div class="panel-head"><h2>وضعیت سفارش‌ها</h2></div><div id="statusChart" class="status-chart"></div></div>
+        </div>
+        <div class="two-col bottom-grid">
+          <div class="panel"><div class="panel-head"><h2>نمودار فروش ماهانه</h2><select id="monthsSelect" onchange="renderSalesChart()"><option value="6">۶ ماه اخیر</option></select></div><div id="salesChart" class="sales-chart"></div></div>
+          <div class="panel"><div class="panel-head"><h2>محصولات پرفروش</h2><button class="ghost" onclick="showSection('products')">مشاهده همه ←</button></div><div id="topProducts" class="top-products"></div></div>
+        </div>
+      </section>
+
+      <section id="orders" class="page"><div class="page-head"><div><h1>مدیریت سفارش‌ها</h1><p>سفارش‌های مشتریان را بررسی و وضعیت آن‌ها را مدیریت کنید.</p></div><button class="primary" onclick="loadOrders()">↻ بروزرسانی</button></div><div class="filter-row"><input id="orderSearch" placeholder="جستجوی نام مشتری یا شماره سفارش..." oninput="renderOrders()"><select id="orderStatus" onchange="renderOrders()"><option value="">همه وضعیت‌ها</option><option>در انتظار بررسی</option><option>تأیید شده</option><option>در حال ارسال</option><option>تکمیل شده</option><option>لغو شده</option></select></div><div class="panel"><div id="ordersTable" class="table-wrap"></div></div></section>
+
+      <section id="products" class="page"><div class="page-head"><div><h1>مدیریت محصولات</h1><p>محصولات فروشگاه را اضافه، ویرایش و حذف کنید.</p></div><button class="primary" onclick="openProductForm()">＋ افزودن محصول</button></div><div class="panel"><div class="filter-row"><input id="productSearch" placeholder="جستجوی محصول..." oninput="renderProducts()"><select id="productAvailability" onchange="renderProducts()"><option value="">همه</option><option value="1">موجود</option><option value="0">ناموجود</option></select></div><div id="productsTable" class="table-wrap"></div></div></section>
+
+      <section id="users" class="page"><div class="page-head"><div><h1>مدیریت کاربران</h1><p>فهرست مشتریان ثبت‌نام‌شده فروشگاه.</p></div></div><div class="panel"><div id="usersTable" class="table-wrap"></div></div></section>
+
+      <section id="reports" class="page">
+<div class="page-head"><div><h1>گزارش فروش و آمار</h1><p>نمای کامل عملکرد فروشگاه بر اساس سفارش‌ها و داده‌های ثبت‌شده.</p></div><button class="primary" onclick="loadAll()">↻ بروزرسانی گزارش</button></div>
+<div class="stats-grid report-stats">
+<div class="stat-card purple"><span class="stat-icon">▣</span><div><small>فروش کل</small><strong id="reportSales">۰ تومان</strong><em>تمام سفارش‌ها</em></div></div>
+<div class="stat-card green"><span class="stat-icon">↗</span><div><small>میانگین مبلغ سفارش</small><strong id="avgOrder">۰ تومان</strong><em>میانگین هر سفارش</em></div></div>
+<div class="stat-card blue"><span class="stat-icon">♙</span><div><small>کل مشتریان</small><strong id="reportUsers">۰</strong><em>کاربر ثبت‌نام شده</em></div></div>
+<div class="stat-card gold"><span class="stat-icon">▣</span><div><small>کل سفارش‌ها</small><strong id="reportOrders">۰</strong><em id="reportCompleted">۰ تکمیل‌شده</em></div></div>
+</div>
+<div class="report-grid">
+<div class="panel"><div class="panel-head"><h2>فروش ماهانه</h2><span class="report-note">۶ ماه اخیر</span></div><div id="reportSalesChart" class="report-sales-chart"></div></div>
+<div class="panel"><div class="panel-head"><h2>وضعیت سفارش‌ها</h2></div><div id="reportStatusBars" class="report-status-bars"></div></div>
+</div>
+<div class="panel"><div class="panel-head"><h2>خلاصه عملکرد</h2></div><div id="reportSummary" class="report-summary"></div></div>
+</section>
+
+
+      <section id="payments" class="page">
+        <div class="page-head"><div><h1>پرداخت‌های کارت‌به‌کارت</h1><p>رسیدهای مشتریان را بررسی و پرداخت‌ها را تأیید یا رد کنید.</p></div><button class="primary" onclick="loadPayments()">↻ بروزرسانی</button></div>
+        <div class="payment-admin-grid">
+          <div class="panel"><div class="panel-head"><h2>اطلاعات کارت فروشگاه</h2><span class="status-on">فعال</span></div>
+            <div class="form-grid payment-settings-form"><label>شماره کارت<input id="payCardNumber" inputmode="numeric" placeholder="۶۱۰۴..."></label><label>نام صاحب کارت<input id="payCardHolder" placeholder="نام فروشگاه / صاحب حساب"></label><label>بانک<input id="payBankName" placeholder="نام بانک"></label><label class="full-field">توضیحات پرداخت<textarea id="payInstructions" placeholder="بعد از کارت‌به‌کارت شماره پیگیری و تصویر رسید را ارسال کنید."></textarea></label></div>
+            <div class="modal-actions"><button class="primary" onclick="savePaymentSettings()">ذخیره اطلاعات پرداخت</button></div><p id="paymentSettingsMsg" class="success"></p>
+          </div>
+          <div class="panel"><div class="panel-head"><h2>وضعیت پرداخت‌ها</h2></div><div id="paymentSummary" class="payment-summary"></div></div>
+        </div>
+        <div class="panel"><div class="panel-head"><h2>رسیدهای ارسالی</h2><select id="paymentStatusFilter" onchange="renderPayments()"><option value="">همه</option><option>در انتظار بررسی</option><option>تأیید شده</option><option>رد شده</option></select></div><div id="paymentsTable" class="payments-table"></div></div>
+      </section>
+
+      <section id="settings" class="page"><div class="page-head"><div><h1>تنظیمات</h1><p>تنظیمات عمومی پنل مدیریت.</p></div></div><div class="panel settings-card"><div class="setting-row"><div><strong>امنیت پنل</strong><p>احراز هویت مدیریت با نشست امن Cloudflare Worker انجام می‌شود.</p></div><span class="status-on">فعال</span></div><div class="setting-row"><div><strong>پایگاه داده</strong><p>محصولات، کاربران و سفارش‌ها در Cloudflare D1 ذخیره می‌شوند.</p></div><span class="status-on">متصل</span></div><div class="setting-row"><div><strong>فروشگاه</strong><p>MR MOBILE STORE</p></div><a class="ghost link-btn" href="/" target="_blank">مشاهده فروشگاه ↗</a></div></div></section>
+    </main>
+  </section>
+</div>
+
+<div id="productModal" class="modal" hidden><div class="modal-card"><button class="close" onclick="closeProductForm()">×</button><h2 id="formTitle">افزودن محصول</h2><div class="form-grid"><label>نام محصول *<input id="name" placeholder="مثلاً iPhone 13"></label><label>قیمت *<input id="price" placeholder="۹۲,۰۰۰,۰۰۰"></label><label>قیمت تخفیف<input id="discountPrice" placeholder="مثلاً ۸۹,۰۰۰,۰۰۰"></label><label>وضعیت<select id="condition"><option>نو</option><option>کارکرده</option><option>استوک</option></select></label><label>دسته‌بندی<select id="category"><option value="موبایل">گوشی موبایل</option><option value="لوازم جانبی">لوازم جانبی</option><option value="تبلت">تبلت</option><option value="ساعت هوشمند">ساعت هوشمند</option><option value="هدفون">هدفون</option><option value="اسپیکر">اسپیکر</option><option value="کابل و شارژر">کابل و شارژر</option></select></label><label class="full-field">برچسب محصول<input id="badge" placeholder="مثلاً پیشنهاد ویژه"></label><div class="check-row full-field"><span>برچسب‌های ویژه:</span><label class="check"><input id="featured" type="checkbox"> ویژه</label><label class="check"><input id="bestseller" type="checkbox"> پرفروش</label><label class="check"><input id="newest" type="checkbox"> جدیدترین</label></div><label class="full-field">لینک مستقیم تصویر<input id="imageUrl" placeholder="https://..."></label><div class="upload-box full-field"><div><strong>یا انتخاب تصویر از دستگاه</strong><small>می‌توانید تا ۵ تصویر انتخاب کنید؛ تصاویر فشرده و به‌صورت گالری ذخیره می‌شوند.</small></div><div class="upload-actions"><label class="upload-btn">📁 انتخاب فایل<input id="imageFile" type="file" accept="image/*" multiple hidden></label><span id="fileName">فایلی انتخاب نشده</span><button type="button" class="ghost" id="clearImage" onclick="clearImageFile()">پاک کردن</button></div></div><label class="full-field">توضیحات<textarea id="desc" placeholder="توضیحات محصول"></textarea></label><label class="check full-field"><input id="available" type="checkbox" checked> محصول موجود است</label></div><div id="preview" class="preview"></div><div class="modal-actions"><button class="ghost" onclick="closeProductForm()">انصراف</button><button class="primary" onclick="saveProduct()">ذخیره محصول</button></div><p id="msg" class="success"></p></div></div>
+
+<div id="toast" class="toast"></div>
+<script>
+let editing=null, products=[], orders=[], users=[], stats={}, payments=[];
+const $=id=>document.getElementById(id);
+const toman=n=>Number(n||0).toLocaleString('fa-IR')+' تومان';
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+const toast=m=>{const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)};
+async function api(url,opt={}){const r=await fetch(url,opt);const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||'خطا');return d}
+async function check(){try{const d=await api('/api/me');if(d.admin){$('login').hidden=true;$('app').hidden=false;setToday();await loadAll()}else $('login').hidden=false}catch(e){$('login').hidden=false}}
+async function login(){try{await api('/api/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({password:$('pass').value})});$('err').textContent='';check()}catch(e){$('err').textContent=e.message}}
+async function logout(){await api('/api/logout',{method:'POST'});location.reload()}
+function setToday(){$('todayText').textContent=new Intl.DateTimeFormat('fa-IR',{dateStyle:'medium'}).format(new Date())}
+function showSection(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active-page',x.id===id));document.querySelectorAll('.nav-item').forEach(x=>x.classList.toggle('active',x.dataset.section===id));if(id==='orders')renderOrders();if(id==='products')renderProducts();if(id==='users')renderUsers();if(id==='reports')renderReports();if(id==='payments')loadPayments();document.querySelector('.sidebar')?.classList.remove('open')}
+function toggleSidebar(){document.querySelector('.sidebar').classList.toggle('open')}
+async function loadAll(){try{[stats,products,orders,users]=await Promise.all([api('/api/admin/stats'),api('/api/products?admin=1'),api('/api/admin/orders'),api('/api/admin/users')]);renderStats();renderRecentOrders();renderStatusChart();renderSalesChart();renderTopProducts();renderOrders();renderProducts();renderUsers();renderReports()}catch(e){toast(e.message)}}
+async function loadOrders(){try{orders=await api('/api/admin/orders');renderOrders();renderRecentOrders();renderStatusChart();$('statNew').textContent=fa(stats.new_orders||0);$('navNew').textContent=fa(stats.new_orders||0);$('bellCount').textContent=fa(stats.new_orders||0)}catch(e){toast(e.message)}}
+function fa(n){return Number(n||0).toLocaleString('fa-IR')}
+function renderStats(){$('statSales').textContent=toman(stats.total_sales||0);$('statProducts').textContent=fa(stats.products||0);$('statUsers').textContent=fa(stats.users||0);$('statNew').textContent=fa(stats.new_orders||0);$('reportUsers').textContent=fa(stats.users||0);$('navNew').textContent=fa(stats.new_orders||0);$('bellCount').textContent=fa(stats.new_orders||0);$('avgOrder').textContent=toman(stats.avg_order||0);$('salesChange').textContent=fa(stats.orders||0)+' سفارش ثبت شده'}
+function orderStatusClass(s){return s.includes('لغو')?'cancel':s.includes('تکمیل')?'done':s.includes('ارسال')?'ship':s.includes('تأیید')?'approve':'wait'}
+function statusSelect(o){const opts=['در انتظار بررسی','تأیید شده','در حال ارسال','تکمیل شده','لغو شده'];return `<select class="status-select ${orderStatusClass(o.status)}" onchange="changeStatus(${o.id},this.value)">${opts.map(s=>`<option ${s===o.status?'selected':''}>${s}</option>`).join('')}</select>`}
+function orderRow(o){const ship=o.shipping_status||'آماده ارسال';const shipClass=ship==='ارسال شد'?'ship':ship==='تحویل داده شد'?'done':'ready';return `<article class="order-card ${shipClass}"><div class="order-main"><div class="order-id"><span>#${o.id}</span><small>شماره سفارش</small></div><div class="order-customer"><strong>${esc(o.customer_name||'مشتری')}</strong><small>${esc(o.phone||'')}</small></div><div class="order-product"><strong>${esc(o.items_text||'—')}</strong><small>محصولات سفارش</small></div><div class="order-total"><strong>${toman(o.total)}</strong><small>مبلغ کل</small></div><div class="order-date"><strong>${esc(o.created_at||'')}</strong><small>تاریخ ثبت</small></div><div class="order-status">${statusSelect(o)}</div></div><div class="shipping-box"><div class="shipping-title"><div><b>🚚 اطلاعات ارسال</b><small>شرکت، کد رهگیری و وضعیت مرسوله</small></div><span class="ship-badge ${shipClass}">${ship}</span></div><div class="shipping-fields"><label class="ship-field"><span>شرکت ارسال</span><select id="carrier-${o.id}"><option value="" ${!o.carrier?'selected':''}>انتخاب شرکت ارسال</option><option ${o.carrier==='پست'?'selected':''}>پست</option><option ${o.carrier==='تیپاکس'?'selected':''}>تیپاکس</option><option ${o.carrier==='چاپار'?'selected':''}>چاپار</option><option ${o.carrier==='پیک'?'selected':''}>پیک</option></select></label><label class="ship-field tracking-field"><span>کد رهگیری مرسوله</span><div class="tracking-input"><span class="track-icon">▣</span><input id="tracking-${o.id}" value="${esc(o.tracking_code||'')}" placeholder="کد رهگیری را وارد کنید"><button type="button" onclick="copyTracking(${o.id})" title="کپی کد">کپی</button></div></label><label class="ship-field"><span>وضعیت ارسال</span><select id="shipstatus-${o.id}" class="ship-status-select ${shipClass}"><option ${ship==='آماده ارسال'?'selected':''}>آماده ارسال</option><option ${ship==='ارسال شد'?'selected':''}>ارسال شد</option><option ${ship==='تحویل داده شد'?'selected':''}>تحویل داده شد</option></select></label><button class="ship-save primary" onclick="saveShipping(${o.id})">✓ ذخیره تغییرات</button></div><div class="shipping-footer"><span>برای ثبت وضعیت «ارسال شد»، وارد کردن کد رهگیری الزامی است.</span><button type="button" class="view-order-btn" onclick="showSection('orders')">مشاهده سفارش</button></div></div></article>`}
+function copyTracking(id){const v=$('tracking-'+id)?.value?.trim();if(!v)return toast('کد رهگیری وارد نشده است.');navigator.clipboard?.writeText(v);toast('کد رهگیری کپی شد ✓')}
+function tableHead(){return ''}
+function renderRecentOrders(){$('recentOrders').innerHTML=orders.length?tableHead()+orders.slice(0,5).map(orderRow).join(''):'<div class="empty">هنوز سفارشی ثبت نشده است.</div>'}
+function renderOrders(){let q=($('orderSearch')?.value||'').trim().toLowerCase(), st=$('orderStatus')?.value||'';let list=orders.filter(o=>(!st||o.status===st)&&(!q||String(o.id).includes(q)||String(o.customer_name||'').toLowerCase().includes(q)||String(o.phone||'').includes(q)));$('ordersTable').innerHTML=list.length?tableHead()+list.map(orderRow).join(''):'<div class="empty">سفارشی با این مشخصات پیدا نشد.</div>'}
+async function saveShipping(id){const carrier=$('carrier-'+id).value,tracking=$('tracking-'+id).value.trim(),status=$('shipstatus-'+id).value;try{await api('/api/admin/orders/'+id+'/shipping',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({carrier,tracking_code:tracking,status})});const o=orders.find(x=>x.id===id);if(o){o.carrier=carrier;o.tracking_code=tracking;o.shipping_status=status;if(status==='ارسال شد')o.status='در حال ارسال';if(status==='تحویل داده شد')o.status='تکمیل شده';}renderOrders();renderRecentOrders();toast('اطلاعات ارسال با موفقیت ذخیره شد ✓');setTimeout(loadOrders,250)}catch(e){toast(e.message)}}
+async function changeStatus(id,status){try{await api('/api/admin/orders/'+id+'/status',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({status})});const o=orders.find(x=>x.id===id);if(o)o.status=status;renderOrders();renderRecentOrders();renderStatusChart();toast('وضعیت سفارش بروزرسانی شد ✓')}catch(e){toast(e.message);loadOrders()}}
+function renderStatusChart(){const total=orders.length||1, groups=['در انتظار بررسی','تأیید شده','در حال ارسال','تکمیل شده','لغو شده'];const counts=groups.map(s=>orders.filter(o=>o.status===s).length);const deg=[];let cur=0;counts.forEach((n,i)=>{let d=n/total*360;deg.push(`${chartColors[i]} ${cur}deg ${cur+d}deg`);cur+=d});$('statusChart').innerHTML=`<div class="donut" style="background:conic-gradient(${deg.join(',')})"><div>${fa(orders.length)}<small>سفارش</small></div></div><div class="legend">${groups.map((s,i)=>`<div><i style="background:${chartColors[i]}"></i><span>${s}</span><b>${fa(counts[i])}</b></div>`).join('')}</div>`}
+const chartColors=['#1d9bf0','#22c55e','#f59e0b','#14b8a6','#ef4444'];
+function renderSalesChart(){const data=stats.monthly_sales||[];const max=Math.max(...data.map(x=>Number(x.total)||0),1);$('salesChart').innerHTML=data.length?data.map(x=>`<div class="bar-col"><div class="bar-value">${shortMoney(x.total)}</div><div class="bar" style="height:${Math.max(8,(Number(x.total)||0)/max*180)}px"></div><small>${esc(x.month)}</small></div>`).join(''):'<div class="empty">هنوز داده فروش کافی نیست.</div>'}
+function shortMoney(n){n=Number(n||0);if(n>=1000000000)return (n/1000000000).toFixed(1)+'B';if(n>=1000000)return Math.round(n/1000000)+'M';if(n>=1000)return Math.round(n/1000)+'K';return n}
+function renderTopProducts(){const map={};orders.forEach(o=>(o.items||[]).forEach(i=>{map[i.name]=(map[i.name]||0)+i.quantity}));const list=Object.entries(map).sort((a,b)=>b[1]-a[1]).slice(0,5);$('topProducts').innerHTML=list.length?list.map((x,i)=>`<div class="top-item"><b>${i+1}</b><span>${esc(x[0])}</span><small>${fa(x[1])} فروش</small></div>`).join(''):'<div class="empty">هنوز فروشی ثبت نشده است.</div>'}
+function renderProducts(){let q=($('productSearch')?.value||'').trim().toLowerCase(), av=$('productAvailability')?.value||'';let list=products.filter(p=>(!q||String(p.name).toLowerCase().includes(q)||String(p.description||'').toLowerCase().includes(q))&&(!av||String(p.available)===av));$('productsTable').innerHTML=list.length?`<div class="table-head product-head"><span>محصول</span><span>وضعیت</span><span>قیمت</span><span>عملیات</span></div>`+list.map(p=>`<div class="table-row product-row"><span class="product-cell"><img src="${esc(p.image_url||'/assets/mr-mobile-logo.png')}" onerror="this.src='/assets/mr-mobile-logo.png'"><strong>${esc(p.name)}</strong><small>${esc(p.condition||'نو')}</small></span><span><i class="stock ${p.available?'in':'out'}">${p.available?'موجود':'ناموجود'}</i></span><strong>${esc(p.price)} تومان</strong><span class="actions"><button class="edit" onclick='openProductForm(${JSON.stringify(p)})'>ویرایش</button><button class="delete" onclick="deleteProduct(${p.id})">حذف</button></span></div>`).join(''):'<div class="empty">محصولی وجود ندارد.</div>'}
+function renderUsers(){let list=users; $('usersTable').innerHTML=list.length?`<div class="table-head users-head"><span>کاربر</span><span>شماره موبایل</span><span>تاریخ ثبت‌نام</span><span>تعداد سفارش</span></div>`+list.map(u=>`<div class="table-row"><span><strong>${esc(u.name)}</strong></span><span>${esc(u.phone)}</span><span>${esc(u.created_at||'')}</span><span>${fa(u.order_count||0)}</span></div>`).join(''):'<div class="empty">کاربری ثبت نشده است.</div>'}
+function renderReports(){
+  $('reportSales').textContent=toman(stats.total_sales||0);$('avgOrder').textContent=toman(stats.avg_order||0);$('reportUsers').textContent=fa(stats.users||0);$('reportOrders').textContent=fa(stats.orders||0);$('reportCompleted').textContent=fa(stats.completed_orders||0)+' تکمیل‌شده';
+  const groups=['در انتظار بررسی','تأیید شده','در حال ارسال','تکمیل شده','لغو شده'];const counts=groups.map(s=>orders.filter(o=>o.status===s).length);const total=orders.length||1;
+  $('reportStatusBars').innerHTML=groups.map((g,i)=>{const c=counts[i],pct=Math.round(c/total*100);return `<div class="r-status"><div><span>${g}</span><b>${fa(c)} <small>${pct}٪</small></b></div><div class="r-track"><i style="width:${pct}%;background:${chartColors[i]}"></i></div></div>`}).join('');
+  const data=stats.monthly_sales||[],max=Math.max(...data.map(x=>Number(x.total)||0),1);$('reportSalesChart').innerHTML=data.length?data.map(x=>`<div class="r-bar-col"><b>${shortMoney(x.total)}</b><div class="r-bar" style="height:${Math.max(10,(Number(x.total)||0)/max*170)}px"></div><span>${esc(x.month)}</span></div>`).join(''):'<div class="empty">هنوز داده فروش کافی نیست.</div>';
+  $('reportSummary').innerHTML=`<div><b>${fa(stats.new_orders||0)}</b><span>در انتظار بررسی</span></div><div><b>${fa(stats.completed_orders||0)}</b><span>تکمیل‌شده</span></div><div><b>${fa(orders.filter(o=>String(o.status||'').includes('لغو')).length)}</b><span>لغوشده</span></div><div><b>${toman(stats.avg_order||0)}</b><span>میانگین هر سفارش</span></div>`;
+}
+let selectedImageData=[];
+function splitImageInput(raw){const s=String(raw||'').trim();if(!s)return [];return s.split(/\r?\n|\|/).map(x=>x.trim()).filter(Boolean)}
+function renderImagePreview(){const urls=selectedImageData.length?selectedImageData:splitImageInput($('imageUrl').value);$('preview').innerHTML=urls.map((u,i)=>`<div class="preview-item"><img src="${esc(u)}" onerror="this.style.display='none'"><small>تصویر ${i+1}</small></div>`).join('')}
+function openProductForm(p=null){editing=p?.id||null;selectedImageData=[];$('formTitle').textContent=p?'ویرایش محصول':'افزودن محصول';$('name').value=p?.name||'';$('price').value=p?.price||'';$('discountPrice').value=p?.discount_price||'';$('condition').value=p?.condition||'نو';$('category').value=p?.category||'موبایل';$('badge').value=p?.badge||'';$('featured').checked=!!p?.featured;$('bestseller').checked=!!p?.bestseller;$('newest').checked=!!p?.newest;$('desc').value=p?.description||'';$('imageUrl').value=p?.image_url||'';$('available').checked=p?p.available!==0:true;$('fileName').textContent=p?.image_url?`${splitImageInput(p.image_url).length} تصویر ثبت شده`:'فایلی انتخاب نشده';$('imageFile').value='';renderImagePreview();$('msg').textContent='';$('productModal').hidden=false}
+function closeProductForm(){$('productModal').hidden=true;editing=null;selectedImageData=[]}
+function clearImageFile(){selectedImageData=[];$('imageFile').value='';$('fileName').textContent='فایلی انتخاب نشده';renderImagePreview()}
+$('imageUrl').addEventListener('input',()=>{selectedImageData=[];renderImagePreview()})
+$('imageFile').addEventListener('change',async()=>{const files=[...($('imageFile').files||[])];if(!files.length)return;try{selectedImageData=[];for(const f of files){selectedImageData.push(await compressImage(f))}const total=selectedImageData.join('\n').length;if(total>1650000)throw new Error('حجم مجموع تصاویر زیاد است؛ لطفاً تعداد یا کیفیت تصاویر را کمتر کنید.');$('imageUrl').value=selectedImageData.join('\n');$('fileName').textContent=`${files.length} تصویر انتخاب شد`;renderImagePreview();$('msg').textContent=''}catch(e){selectedImageData=[];$('imageFile').value='';$('msg').textContent=e.message||'خطا در آماده‌سازی تصاویر.'}})
+function compressImage(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const max=1100,scale=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(im.width*scale));c.height=Math.max(1,Math.round(im.height*scale));c.getContext('2d').drawImage(im,0,0,c.width,c.height);let q=.72,data=c.toDataURL('image/jpeg',q);while(data.length>430000&&q>.38){q-=.07;data=c.toDataURL('image/jpeg',q)}if(data.length>500000)return reject(new Error('یکی از تصاویر هنوز بزرگ است.'));resolve(data)};im.onerror=reject;im.src=r.result};r.onerror=reject;r.readAsDataURL(file)})}
+async function saveProduct(){const images=(selectedImageData.length?selectedImageData:splitImageInput($('imageUrl').value));const image_url=images.join('\n');if(images.length>5)return $('msg').textContent='حداکثر ۵ تصویر برای هر محصول انتخاب کنید.';if(image_url.length>1650000)return $('msg').textContent='حجم مجموع تصاویر زیاد است؛ لطفاً تصاویر کم‌حجم‌تری انتخاب کنید.';const body={name:$('name').value.trim(),price:$('price').value.trim(),discount_price:$('discountPrice').value.trim(),condition:$('condition').value,category:$('category').value,badge:$('badge').value.trim(),featured:$('featured').checked?1:0,bestseller:$('bestseller').checked?1:0,newest:$('newest').checked?1:0,description:$('desc').value.trim(),image_url,available:$('available').checked};try{await api(editing?'/api/products/'+editing:'/api/products',{method:editing?'PUT':'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});closeProductForm();products=await api('/api/products?admin=1');renderProducts();renderStats();toast('محصول با موفقیت ذخیره شد ✓')}catch(e){$('msg').textContent=e.message}}
+async function deleteProduct(id){if(!confirm('این محصول حذف شود؟'))return;try{await api('/api/products/'+id,{method:'DELETE'});products=await api('/api/products?admin=1');renderProducts();stats.products=Math.max(0,(stats.products||1)-1);renderStats();toast('محصول حذف شد')}catch(e){toast(e.message)}}
+
+async function loadPayments(){try{[payments,paymentSettings]=await Promise.all([api('/api/admin/payments'),api('/api/admin/payment-settings')]);$('payCardNumber').value=paymentSettings.card_number||'';$('payCardHolder').value=paymentSettings.card_holder||'';$('payBankName').value=paymentSettings.bank_name||'';$('payInstructions').value=paymentSettings.instructions||'';renderPayments()}catch(e){toast(e.message)}}
+let paymentSettings={};
+function renderPayments(){const f=$('paymentStatusFilter')?.value||'';const list=payments.filter(p=>!f||p.status===f);const pending=payments.filter(p=>p.status==='در انتظار بررسی').length,approved=payments.filter(p=>p.status==='تأیید شده').length,rejected=payments.filter(p=>p.status==='رد شده').length;$('navPayments').textContent=fa(pending);$('paymentSummary').innerHTML=`<div><b>${fa(pending)}</b><span>در انتظار بررسی</span></div><div><b>${fa(approved)}</b><span>تأیید شده</span></div><div><b>${fa(rejected)}</b><span>رد شده</span></div>`;$('paymentsTable').innerHTML=list.length?list.map(paymentRow).join(''):'<div class="empty">پرداختی برای نمایش وجود ندارد.</div>'}
+function paymentRow(p){const status=p.status==='تأیید شده'?'done':p.status==='رد شده'?'cancel':'wait';return `<div class="payment-row"><div><strong>سفارش #${p.order_id}</strong><small>${esc(p.customer_name||'مشتری')} — ${esc(p.phone||'')}</small></div><div><b>${toman(p.amount)}</b><small>پیگیری: ${esc(p.tracking_code||'—')}</small></div><span class="payment-status ${status}">${esc(p.status)}</span><small>${esc(p.created_at||'')}</small><div class="payment-actions"><button class="ghost" onclick="viewReceipt(${p.id})">🧾 رسید</button>${p.status==='در انتظار بررسی'?`<button class="approve-btn" onclick="reviewPayment(${p.id},'تأیید شده')">✓ تأیید</button><button class="reject-btn" onclick="reviewPayment(${p.id},'رد شده')">× رد</button>`:''}</div></div>`}
+function viewReceipt(id){const p=payments.find(x=>x.id===id);if(!p?.receipt_data)return toast('رسیدی برای این پرداخت ثبت نشده است');const w=window.open();if(w){w.document.write(`<title>رسید پرداخت #${p.order_id}</title><body style="margin:0;background:#111;color:#fff;display:grid;place-items:center;min-height:100vh;font-family:Arial"><img src="${p.receipt_data}" style="max-width:95%;max-height:95vh;object-fit:contain"></body>`);w.document.close()}}
+async function reviewPayment(id,status){const note=status==='رد شده'?prompt('دلیل رد پرداخت (اختیاری):')||'':'پرداخت توسط مدیر تأیید شد';try{await api('/api/admin/payments/'+id+'/status',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({status,admin_note:note})});toast(status==='تأیید شده'?'پرداخت تأیید شد ✓':'پرداخت رد شد');await loadPayments();orders=await api('/api/admin/orders');renderOrders();renderRecentOrders();renderStatusChart()}catch(e){toast(e.message)}}
+async function savePaymentSettings(){try{const card=$('payCardNumber').value.replace(/\s+/g,'').trim();if(card && !/^\d{16}$/.test(card))return $('paymentSettingsMsg').textContent='شماره کارت باید ۱۶ رقم باشد.';await api('/api/admin/payment-settings',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({card_number:card,card_holder:$('payCardHolder').value.trim(),bank_name:$('payBankName').value.trim(),instructions:$('payInstructions').value.trim()})});$('paymentSettingsMsg').textContent='اطلاعات پرداخت با موفقیت ذخیره شد ✓';toast('اطلاعات کارت ذخیره شد')}catch(e){$('paymentSettingsMsg').textContent=e.message}}
+function globalFilter(){const q=$('globalSearch').value.trim();if(!q)return;showSection('orders');$('orderSearch').value=q;renderOrders()}
+check();
+</script>
+</body></html>
