@@ -1,5 +1,13 @@
-# Abolfazl Rajabi Portfolio — V18
+# Abolfazl Rajabi Portfolio V19
 
-V18 adds the Work Experience section using only known user-provided facts: 3.5 years of experience, 4+ completed projects, independent web development/digital services, and the Mr Mobile project. No employer names or dates were invented.
+V19 adds a complete RTL Contact Me section to the V18 portfolio.
 
-Deploy on Cloudflare Workers using the existing project setup.
+Contact information:
+- Phone: 0991-848-3441
+- Email: abolfazlrajabi2310@gmail.com
+- Telegram: @aa_3418
+- Instagram: @abolfazl_138576
+- Location: Mazandaran, Qaemshahr
+
+The contact form opens the user's default email client with the entered message.
+Deploy with Cloudflare Workers using the included wrangler configuration.
