@@ -1,1 +1,1 @@
-{"$schema":"https://developers.cloudflare.com/workers/wrangler/config-schema.json","name":"abolfazl-rajabi-hero-v2","compatibility_date":"2026-09-22","main":"src/index.js","assets":{"directory":"./public","not_found_handling":"404-page"}}
+{"$schema":"https://developers.cloudflare.com/workers/wrangler/config-schema.json","name":"abolfazl-rajabi-hero-v3","compatibility_date":"2026-09-22","main":"src/index.js","assets":{"directory":"./public","not_found_handling":"404-page"}}
