@@ -1192,3 +1192,10 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
     max-height:46px;
   }
 }
+
+/* V24 — polished skill/service icon system */
+.skill-group-icon img{width:38px;height:38px;display:block;object-fit:contain}
+.skills-service-title>div img{width:32px;height:32px;display:block;object-fit:contain}
+.skills-service b img{width:24px;height:24px;display:block;object-fit:contain}
+.skills-service b{display:grid!important;place-items:center!important;float:right}
+.skill-group-icon{flex:none}
