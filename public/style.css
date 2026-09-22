@@ -245,3 +245,148 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
   .stats{grid-template-columns:repeat(2,1fr) !important}
   .stats div:nth-child(2){border-left:0 !important}
 }
+
+
+/* =========================================================
+   V7 — HERO COLLISION FIX
+   Services are locked inside the left visual column.
+   ========================================================= */
+
+/* Give the left visual a strict clipping boundary so nothing
+   can cross into the introduction column. */
+.hero{
+  grid-template-columns:minmax(0, 1fr) minmax(520px, .82fr) !important;
+  column-gap:58px !important;
+}
+.hero-left{
+  min-width:0 !important;
+  width:100% !important;
+  overflow:visible !important;
+}
+.code-stage{
+  width:100% !important;
+  max-width:760px !important;
+  overflow:visible !important;
+  position:relative !important;
+}
+
+/* Laptop becomes the main visual block */
+.code-window{
+  left:0 !important;
+  width:min(610px, calc(100% - 105px)) !important;
+  bottom:48px !important;
+}
+
+/* Word stack stays above/left of laptop */
+.word-stack{
+  left:8px !important;
+  top:32px !important;
+}
+
+/* Terminal stays above the laptop, inside visual column */
+.terminal{
+  left:auto !important;
+  right:82px !important;
+  top:18px !important;
+}
+
+/* Services are now INSIDE the left column and cannot enter text */
+.service-stack{
+  left:auto !important;
+  right:0 !important;
+  bottom:92px !important;
+  width:205px !important;
+  z-index:9 !important;
+}
+.service-stack article{
+  width:100% !important;
+}
+
+/* Brand badge remains below the laptop */
+.brand-card{
+  left:0 !important;
+  bottom:10px !important;
+}
+
+/* Extra safety: right content always paints independently */
+.hero-right{
+  min-width:0 !important;
+  width:100% !important;
+  z-index:20 !important;
+  isolation:isolate !important;
+}
+.hero-right .intro{
+  max-width:590px !important;
+  margin-right:0 !important;
+}
+.hero-right .actions,
+.hero-right .stats,
+.hero-right .socials,
+.hero-right .location{
+  position:relative;
+  z-index:21;
+}
+
+/* Desktop only: preserve a clear vertical gutter */
+@media(min-width:1251px){
+  .hero{
+    padding-left:48px !important;
+    padding-right:48px !important;
+  }
+  .hero-left{
+    padding-right:20px !important;
+  }
+}
+
+/* Medium desktop */
+@media(max-width:1250px) and (min-width:901px){
+  .hero{
+    grid-template-columns:minmax(540px,1fr) minmax(460px,.86fr) !important;
+    column-gap:35px !important;
+  }
+  .code-stage{max-width:690px !important}
+  .code-window{width:calc(100% - 90px) !important}
+  .service-stack{width:185px !important}
+  .terminal{right:55px !important}
+}
+
+/* Mobile: stack everything, no overlap */
+@media(max-width:900px){
+  .hero{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:0 !important;
+  }
+  .hero-left{
+    width:100% !important;
+  }
+  .code-stage{
+    width:100% !important;
+    max-width:none !important;
+    height:445px !important;
+  }
+  .code-window{
+    left:0 !important;
+    width:86% !important;
+    bottom:48px !important;
+  }
+  .terminal{
+    right:0 !important;
+    left:auto !important;
+    top:15px !important;
+    width:190px !important;
+  }
+  .service-stack{
+    right:0 !important;
+    left:auto !important;
+    bottom:65px !important;
+    width:155px !important;
+  }
+  .service-stack article{
+    width:155px !important;
+  }
+  .brand-card{
+    left:0 !important;
+    bottom:4px !important;
+  }
+}

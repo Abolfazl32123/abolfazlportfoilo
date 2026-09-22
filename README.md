@@ -1,11 +1,14 @@
-# Abolfazl Rajabi Portfolio V6
+# Abolfazl Rajabi Portfolio V7
 
-This version fixes the V5 layout:
-- Header is explicitly locked to three zones: brand right / navigation center / EN + resume left.
-- Header controls cannot drop into the hero.
-- Laptop, terminal, service cards, and brand badge have independent positions.
-- Service cards no longer sit on top of the laptop.
-- Responsive layout is preserved.
+V7 keeps the approved header and fixes the Hero collision:
+- Brand/logo right
+- Navigation centered
+- EN + resume left
+- Laptop stays in the left visual column
+- Service cards stay inside the left visual column
+- Intro/content stays completely independent on the right
+- Terminal and word stack stay inside the visual area
+- Responsive mobile stacking
 
 Deploy:
 npm install
