@@ -1084,3 +1084,22 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
     direction:rtl;
   }
 }
+
+/* Real service logos */
+.service-icon.brand-icon{
+  overflow:hidden;
+  float:left;
+  margin-left:18px;
+}
+.service-icon.brand-icon img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  display:block;
+}
+.service-icon.brand-icon img[alt="Figma"]{filter:drop-shadow(0 0 8px rgba(20,180,255,.18));}
+.service-icon.brand-icon img[alt="Visual Studio Code"]{filter:drop-shadow(0 0 10px rgba(20,160,255,.2));}
+.service-icon.brand-icon img[alt="Cloudflare"]{filter:drop-shadow(0 0 10px rgba(255,140,40,.18));}
+.service-icon.brand-icon img[alt="Google Search Console"]{filter:drop-shadow(0 0 10px rgba(40,170,255,.18));}
+.consult-icon{font-size:43px;line-height:1;filter:drop-shadow(0 0 8px rgba(255,190,40,.28));}
+.support-icon{font-size:38px;color:#27baff;text-shadow:0 0 12px #149fe5;}

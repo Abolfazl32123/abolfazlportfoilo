@@ -11,3 +11,6 @@ Contact information:
 
 The contact form opens the user's default email client with the entered message.
 Deploy with Cloudflare Workers using the included wrangler configuration.
+
+
+V21: Services redesigned with real brand logos (Figma, VS Code, Cloudflare, Google Search Console) and visual icons for consulting/support.
