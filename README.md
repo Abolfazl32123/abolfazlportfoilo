@@ -1,10 +1,11 @@
-# Abolfazl Rajabi Hero V3
+# Abolfazl Rajabi Portfolio Hero
 
-Cloudflare Workers Static Assets portfolio hero. The supplied AR logo is included at `public/assets/logo.png`.
-
-## Deploy
+## Run
 npm install
 npm run dev
+
+## Deploy to Cloudflare Workers
 npm run deploy
 
-Replace `public/resume.pdf` with your real PDF resume before deployment.
+The user's supplied logo is included at `public/assets/logo.png`.
+Replace `public/resume.pdf` with the real PDF resume before deployment.
