@@ -1,3 +1,8 @@
-Abolfazl Rajabi Portfolio — V15
+# Abolfazl Rajabi Portfolio — V16
 
-Services section restored/left unchanged from V13. Projects section contains one real Mr Mobile project card aligned to the right, with an empty future-project area on the left. The “مشاهده پروژه” button links directly to https://mrmobilestor.ir.
+V16 restores the full original Services section from V12 while keeping the corrected Projects section from V15.
+
+- Services: restored full 6-card + process + CTA design
+- Projects: keeps the corrected Mr Mobile project layout
+- Mr Mobile link: https://mrmobilestor.ir
+- Persian content remains RTL

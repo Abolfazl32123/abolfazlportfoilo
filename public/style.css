@@ -818,3 +818,213 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
   .project-card-mr{grid-column:1;max-width:none;justify-self:stretch}
   .projects-future-space{order:2;min-height:75px}
 }
+
+
+/* =========================================================
+   V12 — SERVICES SECTION
+   ========================================================= */
+.services-section{
+  max-width:1420px;
+  margin:20px auto 0;
+  padding:105px 45px 110px;
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid #12384e;
+}
+.services-section:before{
+  content:"";
+  position:absolute;inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 50%,#008cff20,transparent 28%),
+    radial-gradient(circle at 88% 15%,#0b7bb51b,transparent 25%);
+}
+.services-heading{
+  text-align:center;
+  position:relative;
+  margin-bottom:42px;
+}
+.services-kicker,.process-heading>span{
+  color:#16adff;
+  letter-spacing:3px;
+  font:10px monospace;
+  font-weight:700;
+}
+.services-heading h2,.process-heading h2{
+  margin:7px 0 6px;
+  font-size:43px;
+  line-height:1.2;
+}
+.services-heading h2 strong,.process-heading h2 strong{color:#25b5ff}
+.services-heading p{
+  color:#8ba5b7;
+  font-size:12px;
+  margin:0 auto;
+}
+.services-status{
+  position:absolute;
+  left:65px;top:38px;
+  border:1px solid #166083;
+  border-radius:30px;
+  padding:8px 15px;
+  color:#9bb3c0;
+  font-size:9px;
+  background:#061824c9;
+}
+.services-status i{
+  display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:#00ec88;box-shadow:0 0 12px #00ec88;
+  margin-left:7px;
+}
+.services-words{
+  position:absolute;
+  right:15px;top:8px;
+  text-align:left;
+  color:#149fe5;
+  font:16px/1.35 monospace;
+  border-right:1px solid #125071;
+  padding-right:13px;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  position:relative;
+}
+.service-card{
+  min-height:205px;
+  padding:30px 30px 23px;
+  border:1px solid #17638b;
+  border-radius:22px;
+  background:linear-gradient(145deg,#061c2be8,#04121eea);
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.service-card:before{
+  content:"";
+  position:absolute;inset:-70px auto auto -60px;
+  width:190px;height:190px;border-radius:50%;
+  background:#0aaaff;
+  opacity:.08;filter:blur(35px);
+}
+.service-card:hover{
+  transform:translateY(-5px);
+  border-color:#19b5ff;
+  box-shadow:0 20px 45px #008cff20;
+}
+.service-icon{
+  width:92px;height:92px;
+  border:1px solid #168bc2;
+  border-radius:17px;
+  display:grid;place-items:center;
+  color:#26baff;
+  background:#072337;
+  box-shadow:inset 0 0 25px #008cff12;
+  font:28px monospace;
+  float:left;
+  margin-left:18px;
+}
+.service-number{
+  position:absolute;right:25px;top:25px;
+  color:#16aeff;font:11px monospace;
+}
+.service-body{min-height:125px;padding-top:8px}
+.service-body h3{font-size:18px;margin:4px 0 10px}
+.service-body p{color:#91aaba;font-size:11px;line-height:2;margin:0}
+.service-card>a{
+  display:block;
+  color:#13aeff;
+  text-decoration:none;
+  font-size:10px;
+  margin-top:12px;
+  clear:both;
+}
+.process-heading{
+  text-align:center;
+  margin:65px 0 28px;
+  position:relative;
+}
+.process-heading h2{font-size:33px}
+.process-heading p{color:#819aaa;font-size:11px;margin:0}
+.process-grid{
+  display:grid;
+  grid-template-columns:1fr 42px 1fr 42px 1fr 42px 1fr;
+  gap:8px;
+  align-items:center;
+}
+.process-card{
+  min-height:112px;
+  border:1px solid #155c80;
+  border-radius:17px;
+  background:#061823e8;
+  padding:15px;
+  display:grid;
+  grid-template-columns:36px 45px 1fr;
+  align-items:center;
+  gap:9px;
+  position:relative;
+}
+.process-card>span{align-self:start;color:#17adff;font:9px monospace}
+.process-icon{
+  width:45px;height:45px;border-radius:12px;
+  border:1px solid #16698f;background:#08263a;
+  color:#20b7ff;display:grid;place-items:center;font-size:18px;
+}
+.process-card b{display:block;font-size:10px}
+.process-card small{display:block;color:#718b9b;font-size:8px;line-height:1.7;margin-top:4px}
+.process-arrow{text-align:center;color:#159ff0;font-size:34px}
+.services-bottom{
+  margin-top:35px;
+  display:grid;
+  grid-template-columns:1fr auto auto 1fr;
+  gap:25px;
+  align-items:center;
+}
+.services-motto{color:#728d9e;font:10px/1.7 monospace}
+.services-motto b{color:#a9bdc9}
+.services-question{font-size:10px;text-align:right}
+.services-question small{display:block;color:#6f8999;margin-top:4px}
+.services-cta{
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(135deg,#169eff,#367af6);
+  border-radius:15px;
+  padding:17px 28px;
+  font-size:12px;
+  box-shadow:0 12px 35px #008cff32;
+}
+.services-dots{text-align:left;color:#16adff}
+.services-dots i{
+  display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:#16455d;margin:0 4px;
+}
+.services-dots i:first-child{background:#1aaeff;box-shadow:0 0 8px #1aaeff}
+.services-dots small{display:block;color:#657f90;font:8px monospace;letter-spacing:2px;margin-top:8px}
+
+@media(max-width:1050px){
+  .services-section{padding-left:25px;padding-right:25px}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .services-status{left:0}
+  .services-words{display:none}
+  .process-grid{grid-template-columns:1fr 30px 1fr}
+  .process-grid .process-arrow:nth-of-type(2),
+  .process-grid .process-arrow:nth-of-type(4){display:none}
+  .process-grid .process-card:nth-of-type(5){grid-column:1}
+  .process-grid .process-card:nth-of-type(7){grid-column:3}
+}
+@media(max-width:700px){
+  .services-section{padding:75px 18px 80px}
+  .services-heading h2{font-size:35px}
+  .services-heading p{font-size:10px;line-height:1.9}
+  .services-status{position:static;display:inline-block;margin-top:18px}
+  .services-grid{grid-template-columns:1fr;gap:13px}
+  .service-card{min-height:190px;padding:25px}
+  .service-icon{width:72px;height:72px;font-size:22px}
+  .process-grid{display:grid;grid-template-columns:1fr;gap:10px}
+  .process-arrow{display:none !important}
+  .process-card{min-height:95px}
+  .services-bottom{grid-template-columns:1fr;text-align:center;gap:18px}
+  .services-motto,.services-question{text-align:center}
+  .services-dots{text-align:center}
+}
