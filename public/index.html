@@ -1,57 +1,159 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Abolfazl Rajabi | Web Developer</title>
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="#home"><span><b>Abolfazl Rajabi</b><small>Web Developer & IT Specialist</small></span><img src="/assets/logo.png" alt="Abolfazl Rajabi"></a>
-  <nav><a class="active" href="#home">خانه</a><a href="#about">درباره من</a><a href="#services">خدمات</a><a href="#projects">پروژه‌ها</a><a href="#skills">مهارت‌ها</a><a href="#experience">سوابق</a><a href="#contact">تماس</a></nav>
-  <div class="nav-actions"><button>EN</button><a href="/resume.pdf" download>دانلود رزومه ↓</a></div>
-</header>
-<main>
-<section id="home" class="hero">
-  <div class="code-side">
-    <div class="code-glow"></div>
-    <div class="editor">
-      <div class="editor-top"><div class="dots"><i></i><i></i><i></i></div><span>~/portfolio</span><b>×</b></div>
-      <div class="editor-body">
-        <aside><span>▾ portfolio</span><span>　▾ src</span><span>　　▸ components</span><span>　　▸ pages</span><span>　　▸ assets</span><span>　　▸ styles</span><span>　package.json</span><span>　README.md</span></aside>
-        <div class="code"><div class="tabs"><b>⌁ index.jsx</b><span>⌁ about.jsx</span></div>
-          <pre><span class="n">11</span> <em>const</em> developer = {<br><span class="n">12</span>   name: <strong>"Abolfazl Rajabi"</strong>,<br><span class="n">13</span>   role: <strong>"Web Developer"</strong>,<br><span class="n">14</span>   location: <strong>"Qaemshahr, Mazandaran"</strong>,<br><span class="n">15</span>   skills: [<i>"Web"</i>, <i>"UI/UX"</i>, <i>"IT"</i>],<br><span class="n">16</span>   passion: <strong>"Build & Create"</strong><br><span class="n">17</span>};<br><br><span class="n">28</span> <mark>// Always learning...</mark><br><span class="n">29</span> <em>function</em> App() {<br><span class="n">30</span>   <em>return</em> &lt;Main /&gt;<br><span class="n">31</span> }</pre>
-        </div>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="identity" href="#home">
+      <img class="header-logo" src="/assets/logo.png" alt="Abolfazl Rajabi logo">
+      <div>
+        <strong>Abolfazl Rajabi</strong>
+        <small>Web Developer &amp; IT Specialist</small>
       </div>
-      <div class="editor-bottom"><span>main ✓</span><span>Ln 1, Col 1</span><span>Spaces: 2</span><span>UTF-8</span><span>JavaScript</span></div>
+    </a>
+
+    <nav class="nav">
+      <a class="active" href="#home">خانه</a>
+      <a href="#about">درباره من</a>
+      <a href="#services">خدمات</a>
+      <a href="#projects">پروژه‌ها</a>
+      <a href="#skills">مهارت‌ها</a>
+      <a href="#experience">سوابق</a>
+      <a href="#contact">تماس</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="resume" href="/resume.pdf" download>↓ &nbsp; دانلود رزومه</a>
+      <button class="lang">EN</button>
     </div>
-    <div class="terminal"><div>~ /portfolio</div><b>› npm run dev</b><div>✓ Local: http://localhost:5173</div><div>✓ Vite ready in 326ms</div><div>› Building a better web<br>　for a brighter tomorrow...</div></div>
-    <div class="service-stack"><div><b>&lt;/&gt;</b><strong>Clean Code</strong><small>Maintainable & Scalable</small></div><div><b>◉</b><strong>Modern Design</strong><small>Pixel Perfect UI/UX</small></div><div><b>☁</b><strong>Cloud Deployment</strong><small>Fast & Reliable</small></div></div>
-    <div class="logo-badge"><img src="/assets/logo.png" alt="logo"></div>
-    <div class="slogan">Better<br>Websites<br>Brighter<br>Tomorrow</div>
   </div>
-  <div class="intro">
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-left">
+
+    <div class="code-stage">
+      <div class="code-window">
+        <div class="window-bar">
+          <span></span><span></span><span></span>
+          <b>~/portfolio</b>
+        </div>
+
+        <div class="editor">
+          <aside class="files">
+            <div class="folder">▾ portfolio</div>
+            <div>　▾ src</div>
+            <div>　　▸ components</div>
+            <div>　　▸ pages</div>
+            <div>　　▸ assets</div>
+            <div>　　▸ styles</div>
+            <div class="file">　 index.jsx</div>
+            <div class="file">　 about.jsx</div>
+            <div class="file">　 package.json</div>
+            <div class="file">　 README.md</div>
+          </aside>
+
+          <div class="code">
+            <div class="tabs"><span class="tab active">index.jsx</span><span class="tab">about.jsx</span></div>
+            <pre><code><i>const</i> developer = {
+  name: <em>"Abolfazl Rajabi"</em>,
+  role: <em>"Web Developer"</em>,
+  location: <em>"Qaemshahr, Mazandaran"</em>,
+  skills: [<em>"Web"</em>, <em>"UI/UX"</em>, <em>"IT"</em>],
+  passion: <em>"Build &amp; Create"</em>
+};
+
+<span class="comment">// Always learning...</span>
+
+<span class="fn">function</span> <span class="name">App</span>() {
+  <span class="fn">return</span> (
+    &lt;Main /&gt;
+  );
+}</code></pre>
+          </div>
+        </div>
+        <div class="statusbar">main　 ◉　 JavaScript　 UTF-8　 Ln 1, Col 1</div>
+      </div>
+
+      <div class="terminal">
+        <div>~ /portfolio</div>
+        <b>› npm run dev</b>
+        <div>✓ Local: http://localhost:5173</div>
+        <div>✓ Vite ready in 326ms</div>
+        <div>› Building a better web<br>　for a brighter tomorrow... <span>_</span></div>
+      </div>
+
+      <div class="word-stack">Code<br>Design<br>Deploy<br>Repeat</div>
+
+      <div class="service-stack">
+        <article><span>⌘</span><div><b>Clean Code</b><small>Maintainable &amp; Scalable</small></div></article>
+        <article><span>◉</span><div><b>Modern Design</b><small>Pixel Perfect UI/UX</small></div></article>
+        <article><span>☁</span><div><b>Cloud Deployment</b><small>Fast &amp; Reliable</small></div></article>
+      </div>
+
+      <div class="brand-card">
+        <img src="/assets/logo.png" alt="">
+        <b>Better Websites</b>
+        <small>Brighter Tomorrow</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
     <div class="availability"><span></span> آماده همکاری در پروژه‌های وب و خدمات IT</div>
     <div class="eyebrow">WEB DEVELOPER · IT SPECIALIST</div>
-    <h1>سلام، من<br><span>ابوالفضل رجبی</span></h1>
+
+    <h1>سلام، من<br><strong>ابوالفضل رجبی</strong></h1>
     <h2>طراح وبسایت و متخصص خدمات دیجیتال</h2>
+
     <h3>ایده‌ها را به تجربه‌های دیجیتال تبدیل می‌کنم</h3>
-    <p>من <b>Abolfazl Rajabi</b>، طراح و توسعه‌دهنده وب هستم و به ساخت وب‌سایت‌هایی علاقه دارم که فقط زیبا نباشند؛ بلکه سریع، مدرن، کاربردی و متناسب با نیاز واقعی کاربران طراحی شده باشند.</p>
-    <p>از طراحی رابط کاربری و تجربه کاربری گرفته تا توسعه و بهینه‌سازی وب‌سایت، تلاش می‌کنم هر پروژه ترکیبی از <strong>طراحی خلاقانه، عملکرد قدرتمند و جزئیات دقیق</strong> باشد.</p>
-    <p>برای من، یک وب‌سایت فقط چند صفحه و چند خط کد نیست؛ <strong>ویترین دیجیتال یک برند و اولین تجربه مخاطب از یک کسب‌وکار است.</strong></p>
-    <p>اگر ایده‌ای دارید، می‌توانیم آن را به یک تجربه دیجیتال حرفه‌ای تبدیل کنیم.</p>
-    <div class="actions"><a class="primary" href="#projects">مشاهده پروژه‌ها ↗</a><a class="secondary" href="#contact">تماس با من　➤</a></div>
-    <div class="stats"><div><b>20+</b><small>پروژه انجام شده</small></div><div><b>2+</b><small>سال تجربه</small></div><div><b>100%</b><small>تعهد به کیفیت</small></div><div><b>24/7</b><small>پشتیبانی</small></div></div>
-    <div class="socials"><a href="https://github.com/" target="_blank">◉</a><a href="https://t.me/aa_3418" target="_blank">➤</a><a href="https://instagram.com/abolfazl_138576" target="_blank">IG</a><a href="mailto:abolfazlrajabi2310@gmail.com">✉</a></div>
-    <div class="location">از قائمشهر، مازندران　⌖</div>
+
+    <div class="intro">
+      <p>من <b>Abolfazl Rajabi</b>، طراح و توسعه‌دهنده وب هستم و به ساخت وب‌سایت‌هایی علاقه دارم که فقط زیبا نباشند؛ بلکه سریع، مدرن، کاربردی و متناسب با نیاز واقعی کاربران طراحی شده باشند.</p>
+      <p>از طراحی رابط کاربری و تجربه کاربری گرفته تا توسعه و بهینه‌سازی وب‌سایت، تلاش می‌کنم هر پروژه ترکیبی از <b>طراحی خلاقانه، عملکرد قدرتمند و جزئیات دقیق</b> باشد.</p>
+      <p>برای من، یک وب‌سایت فقط چند صفحه و چند خط کد نیست؛ <b>ویترین دیجیتال یک برند و اولین تجربه مخاطب از یک کسب‌وکار است.</b></p>
+      <p>اگر ایده‌ای دارید، می‌توانیم آن را به یک تجربه دیجیتال حرفه‌ای تبدیل کنیم.</p>
+    </div>
+
+    <div class="actions">
+      <a class="primary" href="#projects">مشاهده پروژه‌ها ↗</a>
+      <a class="secondary" href="#contact">تماس با من　➤</a>
+    </div>
+
+    <div class="stats">
+      <div><b>20+</b><small>پروژه انجام شده</small></div>
+      <div><b>2+</b><small>سال تجربه</small></div>
+      <div><b>100%</b><small>تعهد به کیفیت</small></div>
+      <div><b>24/7</b><small>پشتیبانی</small></div>
+    </div>
+
+    <div class="socials">
+      <a href="https://t.me/aa_3418" target="_blank">TG</a>
+      <a href="https://instagram.com/abolfazl_138576" target="_blank">IG</a>
+      <a href="mailto:abolfazlrajabi2310@gmail.com">✉</a>
+      <a href="tel:09010819406">☎</a>
+    </div>
+    <div class="location">⌖ از قائمشهر، مازندران</div>
   </div>
-  <div class="scroll">◉<span>اسکرول کنید</span></div>
+
+  <div class="scroll">↕　اسکرول کنید</div>
 </section>
-<section id="about" class="section"><small>ABOUT</small><h2>درباره من</h2><p>طراح و توسعه‌دهنده وب با تمرکز بر تجربه کاربری، طراحی مدرن و راهکارهای دیجیتال کاربردی.</p></section>
-<section id="services" class="section"><small>SERVICES</small><h2>خدمات</h2><div class="cards"><article>طراحی و توسعه وبسایت</article><article>UI/UX Design</article><article>خدمات IT و دیجیتال</article></div></section>
-<section id="projects" class="section"><small>PROJECTS</small><h2>پروژه‌ها</h2><div class="cards"><article>Mr. Mobile</article><article>AVAN GALLERY</article><article>VPN Service</article></div></section>
-<section id="skills" class="section"><small>SKILLS</small><h2>مهارت‌ها</h2><p>HTML · CSS · JavaScript · React · Next.js · Tailwind · PHP · MySQL · Git · Cloudflare Workers · UI/UX · IT</p></section>
-<section id="experience" class="section"><small>EXPERIENCE</small><h2>سوابق</h2><p>۲ سال تجربه در طراحی وبسایت و گذراندن دوره‌های برنامه‌نویسی و طراحی سایت.</p></section>
-<section id="contact" class="section"><small>CONTACT</small><h2>تماس با من</h2><p>0901-081-9406 · abolfazlrajabi2310@gmail.com · @aa_3418 · @abolfazl_138576</p></section>
-</main><footer>© 2026 Abolfazl Rajabi — Web Developer & IT Specialist</footer>
-</body></html>
+
+<section id="about" class="section"><span>ABOUT</span><h2>درباره من</h2><p>طراح و توسعه‌دهنده وب با تمرکز بر تجربه کاربری، طراحی مدرن و راهکارهای دیجیتال کاربردی.</p></section>
+<section id="services" class="section"><span>SERVICES</span><h2>خدمات</h2><div class="cards"><article>طراحی و توسعه وبسایت</article><article>UI / UX Design</article><article>خدمات IT و دیجیتال</article></div></section>
+<section id="projects" class="section"><span>PROJECTS</span><h2>پروژه‌ها</h2><div class="cards"><article>Mr. Mobile</article><article>AVAN GALLERY</article><article>Digital Services</article></div></section>
+<section id="skills" class="section"><span>SKILLS</span><h2>مهارت‌ها</h2><p>HTML · CSS · JavaScript · React · Next.js · Tailwind · PHP · MySQL · Git · Cloudflare Workers · UI/UX</p></section>
+<section id="experience" class="section"><span>EXPERIENCE</span><h2>سوابق</h2><p>۲ سال فعالیت در طراحی وبسایت و گذراندن دوره‌های برنامه‌نویسی و طراحی سایت.</p></section>
+<section id="contact" class="section"><span>CONTACT</span><h2>تماس با من</h2><p>0901-081-9406 · abolfazlrajabi2310@gmail.com · @aa_3418 · @abolfazl_138576</p></section>
+</main>
+
+<footer>© 2026 Abolfazl Rajabi — Web Developer &amp; IT Specialist</footer>
+</body>
+</html>

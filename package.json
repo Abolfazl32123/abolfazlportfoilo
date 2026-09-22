@@ -1,1 +1,1 @@
-{"name":"abolfazl-rajabi-portfolio","private":true,"version":"1.0.0","scripts":{"dev":"wrangler dev","deploy":"wrangler deploy"},"devDependencies":{"wrangler":"latest"}}
+{"name":"abolfazl-rajabi-portfolio-v4","private":true,"version":"1.0.0","scripts":{"dev":"wrangler dev","deploy":"wrangler deploy"},"devDependencies":{"wrangler":"latest"}}

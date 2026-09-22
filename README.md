@@ -1,11 +1,7 @@
-# Abolfazl Rajabi Portfolio Hero
-
-## Run
+# Abolfazl Rajabi Portfolio V4
+Real HTML/CSS portfolio hero based on the approved layout.
+## Deploy
 npm install
 npm run dev
-
-## Deploy to Cloudflare Workers
 npm run deploy
-
-The user's supplied logo is included at `public/assets/logo.png`.
-Replace `public/resume.pdf` with the real PDF resume before deployment.
+Replace `public/resume.pdf` with the final PDF.
