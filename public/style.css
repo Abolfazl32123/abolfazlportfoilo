@@ -79,3 +79,169 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
   .service-stack{right:-2px;bottom:68px}
   .brand-card{left:0;bottom:5px}
 }
+
+
+/* =========================================================
+   V6 — FINAL HEADER + HERO SPACING FIX
+   ========================================================= */
+
+/* Header: fixed three-zone layout, independent of RTL direction */
+.header-inner{
+  direction:ltr !important;
+  display:grid !important;
+  grid-template-columns:1fr auto 1fr !important;
+  grid-template-rows:70px !important;
+  width:100%;
+  height:70px !important;
+  align-items:center !important;
+}
+.identity{
+  grid-column:3 !important;
+  grid-row:1 !important;
+  justify-self:end !important;
+  align-self:center !important;
+  direction:rtl !important;
+  order:unset !important;
+}
+.nav{
+  grid-column:2 !important;
+  grid-row:1 !important;
+  justify-self:center !important;
+  align-self:center !important;
+  direction:rtl !important;
+  order:unset !important;
+  white-space:nowrap;
+}
+.header-actions{
+  grid-column:1 !important;
+  grid-row:1 !important;
+  justify-self:start !important;
+  align-self:center !important;
+  direction:ltr !important;
+  order:unset !important;
+  position:static !important;
+  margin:0 !important;
+  padding:0 !important;
+  transform:none !important;
+}
+
+/* Hero: keep the two major areas clean and separated */
+.hero{
+  direction:ltr !important;
+  grid-template-columns:minmax(620px,1.08fr) minmax(520px,.92fr) !important;
+  gap:70px !important;
+  padding:42px 48px 38px !important;
+}
+.hero-left{direction:ltr !important}
+.hero-right{
+  direction:rtl !important;
+  padding:5px 0 0 !important;
+  position:relative;
+  z-index:10;
+}
+
+/* Laptop is a self-contained visual */
+.code-stage{
+  height:590px !important;
+  overflow:visible !important;
+}
+.code-window{
+  left:0 !important;
+  bottom:45px !important;
+  width:610px !important;
+  height:390px !important;
+  z-index:2 !important;
+}
+.word-stack{
+  left:8px !important;
+  top:28px !important;
+  z-index:6 !important;
+}
+.terminal{
+  left:385px !important;
+  right:auto !important;
+  top:18px !important;
+  z-index:8 !important;
+}
+
+/* Service cards sit beside the laptop, not on top of it */
+.service-stack{
+  left:625px !important;
+  right:auto !important;
+  bottom:92px !important;
+  z-index:9 !important;
+}
+.service-stack article{
+  width:205px !important;
+}
+
+/* Brand badge is under the laptop edge */
+.brand-card{
+  left:-8px !important;
+  bottom:8px !important;
+  z-index:10 !important;
+}
+
+/* Right content gets its own breathing room */
+.hero-right .availability{margin-top:0 !important}
+.hero-right h1{margin-top:8px !important}
+.hero-right .intro{max-width:620px !important}
+.stats{margin-top:17px !important}
+
+/* Desktop: don't allow header controls to fall into the hero */
+@media(min-width:901px){
+  .header{height:70px !important}
+  .header-inner{min-height:70px !important}
+}
+
+/* Medium */
+@media(max-width:1250px) and (min-width:901px){
+  .hero{grid-template-columns:minmax(560px,1fr) minmax(470px,.9fr) !important;gap:35px !important;padding-left:32px !important;padding-right:32px !important}
+  .code-window{width:555px !important}
+  .service-stack{left:545px !important}
+  .service-stack article{width:185px !important}
+  .terminal{left:350px !important}
+  .hero-right h1{font-size:60px !important}
+}
+
+/* Tablet/mobile */
+@media(max-width:900px){
+  .header-inner{
+    display:flex !important;
+    direction:ltr !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+    padding:0 16px !important;
+  }
+  .identity{order:3 !important;margin-left:auto !important}
+  .header-actions{order:1 !important;margin-right:auto !important}
+  .nav{display:none !important}
+
+  .hero{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:5px !important;
+    padding:28px 18px 35px !important;
+  }
+  .hero-right{order:1 !important;width:100% !important}
+  .hero-left{order:2 !important;width:100% !important}
+  .code-stage{height:445px !important}
+  .code-window{width:88% !important;height:290px !important;left:0 !important;bottom:52px !important}
+  .terminal{left:auto !important;right:0 !important;top:15px !important;width:190px !important}
+  .word-stack{left:0 !important;top:55px !important;font-size:22px !important}
+  .service-stack{left:auto !important;right:0 !important;bottom:70px !important}
+  .service-stack article{width:155px !important;min-height:46px !important}
+  .brand-card{left:0 !important;bottom:5px !important}
+}
+
+@media(max-width:520px){
+  .header-logo{width:37px !important;height:37px !important}
+  .identity strong{font-size:11px !important}
+  .resume{font-size:9px !important;padding:8px 10px !important}
+  .hero-right h1{font-size:43px !important}
+  .hero-right h2{font-size:15px !important}
+  .hero-right h3{font-size:15px !important}
+  .intro{font-size:10px !important}
+  .stats{grid-template-columns:repeat(2,1fr) !important}
+  .stats div:nth-child(2){border-left:0 !important}
+}

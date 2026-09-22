@@ -1,19 +1,13 @@
-# Abolfazl Rajabi Portfolio V5
+# Abolfazl Rajabi Portfolio V6
 
-Final header/hero layout:
-- Brand + logo on the right
-- Center navigation
-- EN + Download Resume on the left
-- Cleaner hero spacing
-- Laptop separated from service cards
-- Terminal and Code/Design/Deploy/Repeat positioned without overlap
-- Responsive mobile layout
+This version fixes the V5 layout:
+- Header is explicitly locked to three zones: brand right / navigation center / EN + resume left.
+- Header controls cannot drop into the hero.
+- Laptop, terminal, service cards, and brand badge have independent positions.
+- Service cards no longer sit on top of the laptop.
+- Responsive layout is preserved.
 
-## Run
+Deploy:
 npm install
 npm run dev
-
-## Deploy
 npm run deploy
-
-Replace `public/resume.pdf` with the final PDF.
