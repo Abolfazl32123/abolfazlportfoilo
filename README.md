@@ -1,12 +1,10 @@
-# Abolfazl Rajabi Portfolio V8
+# Abolfazl Rajabi Portfolio V9
 
-Final Hero micro-tuning:
-- Service cards moved slightly left for more separation from the introduction.
-- Laptop lowered slightly on desktop.
-- Brand badge adjusted with the laptop.
-- Right-side intro typography is larger and more readable.
-- Header layout remains: brand right / navigation center / EN + resume left.
-- Mobile layout remains responsive.
+V9 updates:
+- 24+ completed projects
+- 3.5 years of experience
+- Real inline SVG contact icons for Telegram, Instagram, Email and Phone
+- Existing V8 Hero/header layout preserved
 
 Deploy:
 npm install

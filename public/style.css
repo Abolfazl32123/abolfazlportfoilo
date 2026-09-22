@@ -455,3 +455,42 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
     bottom:4px !important;
   }
 }
+
+
+/* =========================================================
+   V9 — REAL CONTACT ICONS + UPDATED STATS
+   ========================================================= */
+.contact-icons{
+  display:flex !important;
+  align-items:center;
+  gap:9px !important;
+  margin-top:15px !important;
+}
+.contact-icon{
+  width:38px !important;
+  height:38px !important;
+  display:grid !important;
+  place-items:center !important;
+  border:1px solid #185777 !important;
+  border-radius:50% !important;
+  background:rgba(4,18,30,.86) !important;
+  color:#9bdcff !important;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease !important;
+}
+.contact-icon svg{
+  width:18px !important;
+  height:18px !important;
+  display:block !important;
+}
+.contact-icon:hover{
+  transform:translateY(-3px) !important;
+  border-color:#18adff !important;
+  color:#fff !important;
+  background:#082235 !important;
+  box-shadow:0 8px 25px #008cff25 !important;
+}
+.stats b{font-variant-numeric:tabular-nums}
+@media(max-width:700px){
+  .contact-icons{justify-content:flex-start !important}
+  .contact-icon{width:36px !important;height:36px !important}
+}
