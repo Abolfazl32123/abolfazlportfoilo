@@ -494,3 +494,226 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
   .contact-icons{justify-content:flex-start !important}
   .contact-icon{width:36px !important;height:36px !important}
 }
+
+
+/* =========================================================
+   V10 — ABOUT ME SECTION
+   ========================================================= */
+.about-section{
+  max-width:1250px;
+  margin:40px auto 0;
+  padding:105px 35px 120px;
+  border-top:1px solid #12384e;
+  position:relative;
+}
+.about-section:before{
+  content:"";
+  position:absolute;
+  width:430px;height:430px;
+  right:-140px;top:130px;
+  background:#008cff;
+  opacity:.07;
+  filter:blur(100px);
+  pointer-events:none;
+}
+.about-heading{
+  text-align:right;
+  max-width:700px;
+  margin-left:auto;
+  margin-bottom:42px;
+}
+.about-heading>span{
+  color:#13aaff;
+  font-size:10px;
+  letter-spacing:3px;
+  font-weight:800;
+}
+.about-heading h2{
+  margin:7px 0 10px;
+  font-size:42px;
+  line-height:1.2;
+}
+.about-heading p{
+  color:#829bad;
+  font-size:12px;
+  line-height:2;
+  margin:0;
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  direction:ltr;
+  gap:22px;
+  align-items:stretch;
+}
+.about-story,
+.about-side{
+  direction:rtl;
+}
+.about-story{
+  border:1px solid #174761;
+  border-radius:22px;
+  background:linear-gradient(145deg,#071a28e8,#04111ce8);
+  padding:30px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 25px 60px #0005;
+}
+.about-story:after{
+  content:"";
+  position:absolute;
+  left:-120px;bottom:-160px;
+  width:360px;height:360px;
+  border-radius:50%;
+  background:#008cff;
+  opacity:.09;
+  filter:blur(60px);
+}
+.story-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  direction:ltr;
+  margin-bottom:28px;
+}
+.story-badge{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  direction:ltr;
+}
+.story-badge b{
+  width:43px;height:43px;
+  display:grid;place-items:center;
+  border:1px solid #15aaff;
+  border-radius:13px;
+  color:#55caff;
+  background:#061522;
+  box-shadow:0 0 25px #008cff22;
+  font-size:12px;
+}
+.story-badge span{
+  color:#7f98a9;
+  font:9px monospace;
+}
+.story-status{
+  border:1px solid #185b70;
+  border-radius:30px;
+  padding:7px 11px;
+  color:#8faaba;
+  font-size:8px;
+  direction:ltr;
+}
+.story-status i{
+  display:inline-block;
+  width:6px;height:6px;
+  border-radius:50%;
+  background:#00e993;
+  box-shadow:0 0 10px #00e993;
+  margin-right:6px;
+}
+.about-story h3{
+  margin:0 0 15px;
+  font-size:26px;
+  line-height:1.5;
+}
+.about-story>p{
+  color:#91a8b8;
+  font-size:11px;
+  line-height:2.15;
+  margin:9px 0;
+}
+.about-story>p strong{
+  color:#dff4ff;
+}
+.about-points{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:25px;
+  position:relative;
+  z-index:2;
+}
+.about-points>div{
+  min-height:78px;
+  padding:13px;
+  border:1px solid #123d55;
+  border-radius:14px;
+  background:#061521b8;
+}
+.about-points span{
+  color:#16adff;
+  font:9px monospace;
+}
+.about-points b{
+  display:block;
+  font-size:10px;
+  margin:5px 0 2px;
+}
+.about-points small{
+  color:#6f899b;
+  font-size:8px;
+}
+.about-side{
+  display:grid;
+  gap:14px;
+}
+.about-info-card,
+.about-timeline{
+  border:1px solid #174761;
+  border-radius:20px;
+  background:#061521dd;
+  padding:24px;
+}
+.card-label{
+  color:#13aaff;
+  letter-spacing:2px;
+  font:9px monospace;
+  margin-bottom:18px;
+}
+.info-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:12px 0;
+  border-bottom:1px solid #123247;
+}
+.info-row:last-child{border-bottom:0}
+.info-row span{color:#718b9d;font-size:9px}
+.info-row b{font-size:9px;color:#dcebf3}
+.timeline-item{
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:10px;
+  direction:ltr;
+  padding:11px 0;
+  border-bottom:1px solid #123247;
+}
+.timeline-item:last-child{border-bottom:0}
+.timeline-item>span{
+  width:30px;height:30px;
+  display:grid;place-items:center;
+  border-radius:9px;
+  background:#071d2c;
+  border:1px solid #155477;
+  color:#1bb4ff;
+  font:9px monospace;
+}
+.timeline-item div{direction:rtl;text-align:right}
+.timeline-item b{display:block;font-size:9px;margin-bottom:3px}
+.timeline-item small{color:#708a9c;font-size:8px;line-height:1.7}
+
+@media(max-width:900px){
+  .about-section{padding:75px 18px 90px}
+  .about-heading h2{font-size:35px}
+  .about-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .about-story,.about-info-card,.about-timeline{padding:20px}
+  .story-top{align-items:flex-start;gap:10px}
+  .story-status{font-size:7px}
+  .about-story h3{font-size:22px}
+  .about-points{grid-template-columns:1fr}
+  .info-row b{font-size:8px}
+}

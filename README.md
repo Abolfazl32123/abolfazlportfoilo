@@ -1,12 +1,11 @@
-# Abolfazl Rajabi Portfolio V9
+# Abolfazl Rajabi Portfolio V10
 
-V9 updates:
-- 24+ completed projects
-- 3.5 years of experience
-- Real inline SVG contact icons for Telegram, Instagram, Email and Phone
-- Existing V8 Hero/header layout preserved
+V10 adds the redesigned About Me section while preserving the approved Hero/header.
 
-Deploy:
-npm install
-npm run dev
-npm run deploy
+About section:
+- Editorial heading
+- Personal story card
+- Four capability cards
+- Profile information
+- Three-step journey timeline
+- Responsive mobile layout
