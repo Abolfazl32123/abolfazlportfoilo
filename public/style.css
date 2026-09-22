@@ -390,3 +390,68 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
     bottom:4px !important;
   }
 }
+
+
+/* =========================================================
+   V8 — FINAL HERO MICRO-TUNING
+   ========================================================= */
+
+/* Move service cards slightly left for a clean gutter */
+.service-stack{
+  right:34px !important;
+}
+
+/* Lower the laptop visual a little */
+.code-window{
+  bottom:25px !important;
+}
+.brand-card{
+  bottom:-8px !important;
+}
+
+/* Give the code/word treatment a little more breathing room */
+.word-stack{
+  top:24px !important;
+}
+
+/* Improve readability of the right-side intro */
+.hero-right h2{
+  font-size:20px !important;
+}
+.hero-right h3{
+  font-size:19px !important;
+}
+.hero-right .intro{
+  font-size:12px !important;
+  line-height:2.15 !important;
+  max-width:625px !important;
+}
+.hero-right .intro p{
+  margin:7px 0 !important;
+}
+.hero-right .actions{
+  margin-top:21px !important;
+}
+
+/* Keep the services away from the right content at common desktop widths */
+@media(max-width:1250px) and (min-width:901px){
+  .service-stack{
+    right:22px !important;
+  }
+  .hero-right .intro{
+    font-size:11px !important;
+  }
+}
+
+/* Mobile keeps the original stacked layout */
+@media(max-width:900px){
+  .service-stack{
+    right:0 !important;
+  }
+  .code-window{
+    bottom:48px !important;
+  }
+  .brand-card{
+    bottom:4px !important;
+  }
+}
