@@ -1,10 +1,6 @@
-# Abolfazl Rajabi — Exact Hero
+# Abolfazl Rajabi Hero V2
+Exact-layout-inspired Cloudflare Workers hero. Replace public/resume.pdf with the real PDF.
 
-Hero section recreated to closely match the supplied reference image, with the requested Persian introduction.
-
-Deploy:
-1. npm install
-2. npm run dev
-3. npm run deploy
-
-Replace public/resume.pdf with the real resume PDF before publishing.
+npm install
+npm run dev
+npm run deploy
