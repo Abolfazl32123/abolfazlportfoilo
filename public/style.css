@@ -31,3 +31,51 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
 
 @media(max-width:1100px){.nav{gap:12px}.nav a{font-size:9px}.hero{grid-template-columns:1fr;padding-top:30px}.hero-right{order:1}.hero-left{order:2}.code-stage{height:510px}.code-window{width:78%;left:3%;height:350px}.editor{height:288px}.terminal{right:4%;top:35px}.service-stack{right:2%;bottom:75px}.word-stack{left:3%;top:40px}.brand-card{left:1%;bottom:25px}}
 @media(max-width:700px){.header{height:62px}.header-inner{padding:0 12px}.identity small,.nav{display:none}.header-logo{width:38px;height:38px}.resume{padding:8px 10px;font-size:9px}.hero{display:flex;flex-direction:column;padding:30px 16px;gap:10px}.hero-right{width:100%;text-align:right}.hero-right h1{font-size:45px}.hero-right h2{font-size:16px}.hero-right h3{font-size:16px}.intro{font-size:10px}.stats{max-width:none}.hero-left{width:100%}.code-stage{height:420px}.code-window{width:86%;left:0;height:285px;bottom:45px}.editor{grid-template-columns:90px 1fr;height:235px}.files{font-size:7px;padding:10px 7px}.code pre{font-size:8px;padding:13px;line-height:1.9}.terminal{width:190px;right:0;top:18px;font-size:8px}.word-stack{font-size:22px;top:50px;left:3px}.service-stack{right:-3px;bottom:68px;gap:5px}.service-stack article{width:155px;min-height:46px;padding:7px 9px}.service-stack b{font-size:8px}.service-stack small{font-size:6px}.brand-card{width:78px;height:92px;left:0;bottom:5px}.brand-card img{width:38px;height:38px}.brand-card b,.brand-card small{font-size:6px}.actions{flex-wrap:wrap}.cards{grid-template-columns:1fr}}
+
+
+/* ===== V5 FINAL LAYOUT ===== */
+.header-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.identity{grid-column:3;justify-self:end;order:initial}
+.nav{grid-column:2;justify-self:center;order:initial}
+.header-actions{grid-column:1;justify-self:start;order:initial}
+
+/* Cleaner desktop hero: laptop independent, services outside it */
+.hero{grid-template-columns:minmax(0,1.02fr) minmax(520px,.98fr);gap:60px;padding-left:45px;padding-right:45px}
+.code-stage{height:600px}
+.code-window{left:5px;bottom:45px;width:625px;height:395px}
+.word-stack{left:5px;top:38px}
+.terminal{right:5px;top:30px}
+.service-stack{right:-55px;bottom:105px}
+.brand-card{left:-5px;bottom:15px}
+.hero-right{padding-right:5px}
+.stats{max-width:575px}
+.scroll{left:45px}
+
+/* Prevent visual collisions at medium widths */
+@media(max-width:1200px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(480px,.9fr);gap:35px}
+  .code-window{width:570px}
+  .service-stack{right:-30px}
+  .hero-right h1{font-size:clamp(48px,5vw,68px)}
+  .intro{font-size:10px}
+}
+@media(max-width:900px){
+  .header-inner{grid-template-columns:1fr auto 1fr}
+  .nav{gap:15px}.nav a{font-size:8px}
+  .hero{grid-template-columns:1fr;padding-top:30px}
+  .hero-right{order:1}.hero-left{order:2}
+  .code-window{width:78%;left:4%;bottom:55px}
+  .service-stack{right:0;bottom:80px}
+}
+@media(max-width:700px){
+  .header-inner{display:flex;justify-content:space-between}
+  .identity{order:3}.nav{display:none}.header-actions{order:1}
+  .hero{display:flex;flex-direction:column;padding:28px 16px}
+  .hero-right{order:1}.hero-left{order:2}
+  .code-stage{height:430px}
+  .code-window{width:88%;height:285px;left:0;bottom:48px}
+  .terminal{right:0;top:15px;width:190px}
+  .word-stack{left:0;top:48px;font-size:22px}
+  .service-stack{right:-2px;bottom:68px}
+  .brand-card{left:0;bottom:5px}
+}
