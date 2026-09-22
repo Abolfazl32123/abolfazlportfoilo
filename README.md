@@ -1,7 +1,3 @@
-# Abolfazl Rajabi Portfolio V13
-Projects section added without VPN:
-- 6 portfolio projects
-- filters and live search
-- project cards with tech tags
-- stats and collaboration CTA
-- responsive layout
+Abolfazl Rajabi Portfolio — V15
+
+Services section restored/left unchanged from V13. Projects section contains one real Mr Mobile project card aligned to the right, with an empty future-project area on the left. The “مشاهده پروژه” button links directly to https://mrmobilestor.ir.

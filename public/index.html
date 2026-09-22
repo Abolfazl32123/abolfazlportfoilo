@@ -219,7 +219,12 @@
     <div class="projects-words" dir="ltr">Code<br>Design<br>Deploy<br>Repeat</div>
   </div>
 
-  <div class="projects-grid projects-grid-single" id="projectsGrid">
+  <div class="projects-layout" id="projectsGrid">
+    <div class="projects-future-space" dir="rtl">
+      <span>پروژه‌های بعدی شما</span>
+      <small>فضای آماده برای اضافه کردن نمونه‌کارهای جدید</small>
+    </div>
+
     <article class="project-card project-card-mr" data-category="shop" data-title="آقای موبایل" dir="rtl">
       <div class="project-image mobile-project real-project-image">
         <img src="/assets/mr-mobile-project.png" alt="تصویر سایت آقای موبایل">
@@ -239,11 +244,6 @@
     </article>
   </div>
 
-  <div class="projects-add-space" dir="rtl">
-    <span>پروژه‌های بعدی شما</span>
-    <small>فضا برای اضافه کردن نمونه‌کارهای جدید</small>
-  </div>
-
   <div class="project-stats">
     <div><span>▱</span><b>+4</b><small>پروژه انجام شده</small></div>
     <div><span>♜</span><b>3.5</b><small>سال تجربه</small></div>
@@ -260,5 +260,19 @@
 </main>
 
 <footer>© 2026 Abolfazl Rajabi — Web Developer &amp; IT Specialist</footer>
-</body>
+<script>
+(function(){
+  const grid=document.getElementById('projectsGrid');
+  if(!grid)return;
+  const cards=[...grid.querySelectorAll('.project-card')], buttons=[...document.querySelectorAll('.project-filters button')], search=document.getElementById('projectSearch'), empty=document.getElementById('projectEmpty');
+  let filter='all';
+  function render(){
+    const q=(search?.value||'').trim().toLowerCase(); let visible=0;
+    cards.forEach(card=>{const show=(filter==='all'||card.dataset.category===filter)&&(!q||card.dataset.title.toLowerCase().includes(q));card.style.display=show?'':'none';if(show)visible++;});
+    empty.classList.toggle('show',visible===0);
+  }
+  buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');filter=btn.dataset.filter;render();}));
+  search?.addEventListener('input',render); render();
+})();
+</script></body>
 </html>
