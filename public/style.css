@@ -1124,3 +1124,71 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
   width:62px;
   height:62px;
 }
+
+/* ================= SERVICE CARD ALIGNMENT / LOGO SCALE ================= */
+.service-card{
+  min-height:205px;
+  padding:30px 30px 23px;
+  box-sizing:border-box;
+}
+.service-icon.brand-icon{
+  width:92px;
+  height:92px;
+  min-width:92px;
+  min-height:92px;
+  box-sizing:border-box;
+  float:left;
+  margin:0 0 0 18px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+.service-icon.brand-icon img{
+  width:56px;
+  height:56px;
+  max-width:56px;
+  max-height:56px;
+  object-fit:contain;
+  display:block;
+  margin:0;
+  flex:none;
+}
+.service-icon.brand-icon img[alt="مشاوره دیجیتال"],
+.service-icon.brand-icon img[alt="پشتیبانی"]{
+  width:54px;
+  height:54px;
+  max-width:54px;
+  max-height:54px;
+}
+.service-body{
+  min-height:125px;
+  padding-top:8px;
+  box-sizing:border-box;
+}
+.service-card>a{
+  clear:both;
+  display:block;
+  margin-top:12px;
+}
+
+@media(max-width:700px){
+  .service-card{
+    min-height:190px;
+    padding:25px;
+  }
+  .service-icon.brand-icon{
+    width:72px;
+    height:72px;
+    min-width:72px;
+    min-height:72px;
+    margin-left:16px;
+  }
+  .service-icon.brand-icon img,
+  .service-icon.brand-icon img[alt="مشاوره دیجیتال"],
+  .service-icon.brand-icon img[alt="پشتیبانی"]{
+    width:46px;
+    height:46px;
+    max-width:46px;
+    max-height:46px;
+  }
+}
