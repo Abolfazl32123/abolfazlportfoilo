@@ -1199,3 +1199,17 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
 .skills-service b img{width:24px;height:24px;display:block;object-fit:contain}
 .skills-service b{display:grid!important;place-items:center!important;float:right}
 .skill-group-icon{flex:none}
+/* V25 — real/local skill brand marks, aligned to the supplied reference */
+.skill-item,.skill-mini{display:flex;flex-direction:column;align-items:center;text-align:center}
+.skill-item .skill-brand-logo{height:52px;display:grid;place-items:center;margin:0 0 7px}
+.skill-item .skill-brand-logo img{width:46px;height:46px;object-fit:contain;display:block}
+.skill-mini .skill-mini-logo{height:38px;display:grid;place-items:center;margin:-2px 0 5px}
+.skill-mini .skill-mini-logo img{width:34px;height:34px;object-fit:contain;display:block}
+.skill-mini .skill-mini-logo img[alt="Cloudflare"]{width:46px;height:34px}
+.skill-mini .skill-mini-logo img[alt="Responsive Design"]{width:39px;height:34px}
+.skill-mini .skill-mini-logo img[alt="Vercel"]{width:34px;height:30px}
+.skill-mini .skill-mini-logo img[alt="Google Search Console"]{width:34px;height:34px}
+.skill-item .skill-ring{margin:12px auto 10px}
+.skill-item .checks{width:100%;text-align:center}
+.skill-mini .skill-bar{width:100%;margin-top:14px}
+.skill-mini>b{width:100%;text-align:left}
