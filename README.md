@@ -1,8 +1,7 @@
-# Abolfazl Rajabi Portfolio V12
-
-V12 adds the Services section based on the approved dark neon-blue design:
-- Six service cards
-- Collaboration process
-- CTA
-- Responsive mobile layout
-- Existing Hero/About/Header preserved
+# Abolfazl Rajabi Portfolio V13
+Projects section added without VPN:
+- 6 portfolio projects
+- filters and live search
+- project cards with tech tags
+- stats and collaboration CTA
+- responsive layout
