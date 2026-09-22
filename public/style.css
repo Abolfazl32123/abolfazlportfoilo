@@ -1103,3 +1103,24 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
 .service-icon.brand-icon img[alt="Google Search Console"]{filter:drop-shadow(0 0 10px rgba(40,170,255,.18));}
 .consult-icon{font-size:43px;line-height:1;filter:drop-shadow(0 0 8px rgba(255,190,40,.28));}
 .support-icon{font-size:38px;color:#27baff;text-shadow:0 0 12px #149fe5;}
+
+/* Local service brand artwork — no external CDN dependency */
+.service-icon.brand-icon{
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  float:left;
+  margin-left:18px;
+}
+.service-icon.brand-icon img{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+  display:block;
+  flex:none;
+}
+.service-icon.brand-icon img[alt="مشاوره دیجیتال"],
+.service-icon.brand-icon img[alt="پشتیبانی"]{
+  width:62px;
+  height:62px;
+}
