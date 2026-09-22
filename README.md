@@ -1,5 +1,8 @@
-# Abolfazl Rajabi Portfolio V11
+# Abolfazl Rajabi Portfolio V12
 
-About Me refinement:
-- Replaced the AR placeholder badge with the real brand logo.
-- Preserved the V10 About layout and all approved Hero/header changes.
+V12 adds the Services section based on the approved dark neon-blue design:
+- Six service cards
+- Collaboration process
+- CTA
+- Responsive mobile layout
+- Existing Hero/About/Header preserved
