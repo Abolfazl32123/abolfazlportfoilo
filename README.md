@@ -1,11 +1,5 @@
-# Abolfazl Rajabi Portfolio V10
+# Abolfazl Rajabi Portfolio V11
 
-V10 adds the redesigned About Me section while preserving the approved Hero/header.
-
-About section:
-- Editorial heading
-- Personal story card
-- Four capability cards
-- Profile information
-- Three-step journey timeline
-- Responsive mobile layout
+About Me refinement:
+- Replaced the AR placeholder badge with the real brand logo.
+- Preserved the V10 About layout and all approved Hero/header changes.

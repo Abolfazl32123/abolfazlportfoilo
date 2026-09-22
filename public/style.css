@@ -717,3 +717,15 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
   .about-points{grid-template-columns:1fr}
   .info-row b{font-size:8px}
 }
+
+/* V11 — use the real brand logo in About Me */
+.story-badge img{
+  width:43px;
+  height:43px;
+  display:block;
+  object-fit:cover;
+  border-radius:13px;
+  border:1px solid #15aaff;
+  background:#061522;
+  box-shadow:0 0 25px #008cff22;
+}
