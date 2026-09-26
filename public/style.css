@@ -1213,3 +1213,145 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
 .skill-item .checks{width:100%;text-align:center}
 .skill-mini .skill-bar{width:100%;margin-top:14px}
 .skill-mini>b{width:100%;text-align:left}
+
+/* =========================================================
+   V26 — MOBILE DEBUG PASS (desktop intentionally untouched)
+   ========================================================= */
+@media (max-width:700px){
+  /* BUG 1: hero floating cards sit below the laptop instead of covering it */
+  .hero-left .code-stage{
+    height:540px !important;
+    overflow:visible !important;
+  }
+  .hero-left .code-window{
+    bottom:150px !important;
+  }
+  .hero-left .service-stack{
+    right:0 !important;
+    left:auto !important;
+    bottom:0 !important;
+    width:155px !important;
+    gap:6px !important;
+    z-index:12 !important;
+  }
+  .hero-left .service-stack article{
+    width:155px !important;
+    min-height:48px !important;
+    box-sizing:border-box !important;
+  }
+
+  /* BUG 2: four process cards — one size, no horizontal overflow */
+  .process-grid{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:12px !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+    padding:0 !important;
+    overflow:visible !important;
+  }
+  .process-grid .process-arrow{display:none !important}
+  .process-grid .process-card{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    height:118px !important;
+    min-height:118px !important;
+    box-sizing:border-box !important;
+    margin:0 !important;
+    padding:16px !important;
+    display:grid !important;
+    grid-template-columns:58px minmax(0,1fr) 28px !important;
+    align-items:center !important;
+    gap:12px !important;
+    overflow:hidden !important;
+  }
+  .process-grid .process-icon{
+    width:54px !important;
+    height:54px !important;
+    margin:0 !important;
+    display:grid !important;
+    place-items:center !important;
+    flex:none !important;
+  }
+  .process-grid .process-icon img{width:29px !important;height:29px !important;object-fit:contain !important;display:block !important}
+  .process-grid .process-card b{font-size:13px !important;line-height:1.7 !important}
+  .process-grid .process-card small{font-size:9px !important;line-height:1.8 !important}
+
+  /* BUG 3: real brand logos keep their own colors on mobile */
+  .skill-item .skill-brand-logo img,
+  .skill-mini .skill-mini-logo img{
+    filter:none !important;
+    opacity:1 !important;
+  }
+  .skill-item .skill-brand-logo{height:56px !important}
+  .skill-item .skill-brand-logo img{width:50px !important;height:50px !important}
+  .skill-mini .skill-mini-logo{height:42px !important}
+  .skill-mini .skill-mini-logo img{width:38px !important;height:38px !important}
+  .skill-mini .skill-mini-logo img[alt="Cloudflare"]{width:50px !important;height:38px !important}
+  .skill-mini .skill-mini-logo img[alt="Responsive Design"]{width:42px !important;height:38px !important}
+
+  /* BUG 4: real contact icons */
+  .contact-icon.real-icon{
+    display:grid !important;
+    place-items:center !important;
+    overflow:hidden !important;
+  }
+  .contact-icon.real-icon img{
+    width:27px !important;
+    height:27px !important;
+    object-fit:contain !important;
+    display:block !important;
+  }
+  .contact-info-item:nth-child(1) .real-icon{background:#071f31 !important}
+  .contact-info-item:nth-child(2) .real-icon{background:#08251d !important}
+  .contact-info-item:nth-child(3) .real-icon{background:#071f32 !important}
+  .contact-info-item:nth-child(4) .real-icon{background:#291327 !important}
+  .contact-info-item:nth-child(5) .real-icon{background:#2a1717 !important}
+
+  /* BUG 5: real colored highlight icons */
+  .contact-highlights>div>b img{
+    width:23px !important;
+    height:23px !important;
+    object-fit:contain !important;
+    display:block !important;
+  }
+  .contact-highlights>div>b{display:grid !important;place-items:center !important}
+
+  /* BUG 6: actual map of Mazandaran with Qaemshahr marker, contained in card */
+  .contact-map.real-map{
+    min-height:245px !important;
+    height:245px !important;
+    padding:0 !important;
+    overflow:hidden !important;
+    display:block !important;
+    position:relative !important;
+    background:#071a28 !important;
+  }
+  .contact-map.real-map iframe{
+    width:100% !important;
+    height:100% !important;
+    border:0 !important;
+    display:block !important;
+    filter:saturate(.85) contrast(1.05) brightness(.72) !important;
+  }
+  .contact-map.real-map .map-label{
+    position:absolute !important;
+    right:14px !important;
+    bottom:14px !important;
+    z-index:3 !important;
+    padding:8px 12px !important;
+    border:1px solid #12a9e8 !important;
+    border-radius:10px !important;
+    background:#031521e8 !important;
+    color:#fff !important;
+    font-size:10px !important;
+    box-shadow:0 8px 25px #0008 !important;
+  }
+}
+
+/* Brand colors are preserved at every viewport, not only mobile. */
+.skill-item .skill-brand-logo img[alt="HTML5"]{filter:none}
+.skill-item .skill-brand-logo img[alt="CSS3"]{filter:none}
+.skill-item .skill-brand-logo img[alt="JavaScript"]{filter:none}
