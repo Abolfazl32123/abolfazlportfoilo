@@ -1,5 +1,5 @@
 :root{--bg:#020b14;--panel:#061522;--line:#155171;--blue:#16a9ff;--cyan:#55ddff;--text:#f5f9fc;--muted:#91a9bb}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Vazirmatn,"Noto Sans Arabic",Arial,sans-serif;overflow-x:hidden}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Vazirmatn,Arial,sans-serif;overflow-x:hidden}
 body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 14% 55%,#064e8d 0,transparent 30%),radial-gradient(circle at 80% 20%,#063a5d 0,transparent 33%),linear-gradient(#030b13,#061522 70%,#020a12)}
 body:after{content:"";position:fixed;inset:0;z-index:-1;opacity:.08;background-image:linear-gradient(#38bfff 1px,transparent 1px),linear-gradient(90deg,#38bfff 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(#000 0,#000 70%,transparent 100%)}
 .header{height:70px;background:rgba(2,9,16,.86);border-bottom:1px solid #16394e;backdrop-filter:blur(18px);position:sticky;top:0;z-index:100}
