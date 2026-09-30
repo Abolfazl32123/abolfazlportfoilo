@@ -1362,3 +1362,53 @@ footer .footer-inner{display:flex;align-items:center;justify-content:center;gap:
 footer .enamad-badge{display:inline-flex;align-items:center;justify-content:center;min-height:48px;text-decoration:none}
 footer .enamad-badge img{width:92px;height:auto;max-height:92px;object-fit:contain;display:block}
 @media(max-width:700px){footer .footer-inner{gap:10px}footer .enamad-badge img{width:82px}}
+
+/* V35 — final bug fixes */
+/* Service cards: keep every real icon centered inside its own frame on all viewports. */
+.service-card{position:relative;overflow:hidden}
+.service-icon.brand-icon{float:none;position:absolute;left:30px;top:30px;margin:0!important;width:92px!important;height:92px!important;min-width:92px!important;min-height:92px!important;display:grid!important;place-items:center!important;box-sizing:border-box!important;overflow:hidden!important}
+.service-icon.brand-icon img{width:56px!important;height:56px!important;max-width:56px!important;max-height:56px!important;margin:0!important;display:block!important;object-fit:contain!important}
+.service-icon.brand-icon img[alt="مشاوره دیجیتال"],.service-icon.brand-icon img[alt="پشتیبانی"]{width:54px!important;height:54px!important;max-width:54px!important;max-height:54px!important}
+.service-body{margin-left:122px;min-height:125px;box-sizing:border-box}
+.service-card>a{clear:none;margin-left:122px}
+
+/* Process: two cards per row on phones. */
+@media(max-width:700px){
+  .process-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-auto-flow:row!important;gap:12px!important;width:100%!important;padding:0!important;overflow:visible!important;direction:rtl!important;align-items:stretch!important}
+  .process-grid .process-arrow{display:none!important}
+  .process-grid .process-card{width:100%!important;max-width:none!important;min-width:0!important;height:155px!important;min-height:155px!important;padding:13px!important;margin:0!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:7px!important;text-align:center!important;overflow:hidden!important}
+  .process-grid .process-card>span{position:absolute!important;top:11px!important;right:12px!important}
+  .process-grid .process-icon{width:52px!important;height:52px!important;margin:0!important;display:grid!important;place-items:center!important;flex:none!important}
+  .process-grid .process-icon img{width:29px!important;height:29px!important;object-fit:contain!important;display:block!important}
+  .process-grid .process-card>div:last-child{min-width:0!important;width:100%!important}
+  .process-grid .process-card b{display:block!important;font-size:12px!important;line-height:1.7!important;white-space:normal!important}
+  .process-grid .process-card small{display:block!important;font-size:8px!important;line-height:1.8!important;color:#7f9aaa!important}
+
+  .service-card{min-height:190px!important;padding:25px!important}
+  .service-icon.brand-icon{left:25px!important;top:25px!important;width:72px!important;height:72px!important;min-width:72px!important;min-height:72px!important}
+  .service-icon.brand-icon img,.service-icon.brand-icon img[alt="مشاوره دیجیتال"],.service-icon.brand-icon img[alt="پشتیبانی"]{width:46px!important;height:46px!important;max-width:46px!important;max-height:46px!important}
+  .service-body{margin-left:88px!important;min-height:125px!important;padding-top:5px!important}
+  .service-card>a{margin-left:88px!important}
+}
+
+/* Contact highlight logos: never escape their desktop frame. */
+.contact-highlights>div>b{width:48px!important;height:48px!important;min-width:48px!important;max-width:48px!important;box-sizing:border-box!important;display:grid!important;place-items:center!important;overflow:hidden!important;padding:0!important}
+.contact-highlights>div>b img{width:27px!important;height:27px!important;max-width:27px!important;max-height:27px!important;object-fit:contain!important;display:block!important;margin:0!important}
+
+/* Four footer contact buttons: real local icons, centered and uniform. */
+.footer-contact-icons{display:flex!important;align-items:center!important;justify-content:center!important;gap:9px!important}
+.footer-contact-icons a{width:38px!important;height:38px!important;min-width:38px!important;box-sizing:border-box!important;border:1px solid #165a7b!important;border-radius:50%!important;display:grid!important;place-items:center!important;color:#19b4ff!important;text-decoration:none!important;font-size:0!important;overflow:hidden!important}
+.footer-contact-icons a img{width:20px!important;height:20px!important;max-width:20px!important;max-height:20px!important;object-fit:contain!important;display:block!important;margin:0!important;filter:none!important}
+.footer-contact-icons a:nth-child(1) img{width:19px!important;height:19px!important}
+.footer-contact-icons a:nth-child(2) img{width:20px!important;height:20px!important}
+.footer-contact-icons a:nth-child(3) img{width:21px!important;height:21px!important}
+.footer-contact-icons a:nth-child(4) img{width:21px!important;height:21px!important}
+
+/* ENAMAD: clickable official badge; don't lazy-load the remote trustseal. */
+footer .enamad-badge{position:relative;min-width:92px;min-height:92px!important;border:1px solid #17638b;border-radius:12px;background:#061824;overflow:hidden;padding:5px;box-sizing:border-box}
+footer .enamad-badge img{width:82px!important;height:82px!important;max-width:82px!important;max-height:82px!important;object-fit:contain!important;display:block!important;position:relative;z-index:2}
+footer .enamad-fallback{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:12px;color:#78b8d4;font-size:8px;line-height:1.8;z-index:1}
+footer .enamad-badge img:not([src=""]){background:transparent}
+@media(max-width:700px){footer .enamad-badge{min-width:82px;min-height:82px!important}footer .enamad-badge img{width:72px!important;height:72px!important;max-width:72px!important;max-height:72px!important}}
+
+/* Favicon is supplied by /assets/favicon-32.png and /assets/favicon-192.png. */
