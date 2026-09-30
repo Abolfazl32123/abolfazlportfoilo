@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>55121878</title>
+<title>Abolfazl Rajabi | Web Developer</title>
 <meta name="enamad" content="55121878" />
 <link rel="stylesheet" href="/style.css">
 </head>
@@ -31,7 +31,7 @@
 
     <div class="header-actions">
       <a class="resume" href="/resume.pdf" download>↓ &nbsp; دانلود رزومه</a>
-      <button class="lang">EN</button>
+      <button class="lang" type="button" aria-label="تغییر زبان">EN</button>
     </div>
   </div>
 </header>
@@ -568,7 +568,14 @@
 </section>
 </main>
 
-<footer>© 2026 Abolfazl Rajabi — Web Developer &amp; IT Specialist</footer>
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Abolfazl Rajabi — Web Developer &amp; IT Specialist</span>
+    <a class="enamad-badge" referrerpolicy="origin" target="_blank" rel="noopener noreferrer" href="https://trustseal.enamad.ir/?id=7969156&amp;Code=4E1Wj0YbW4VMCSzAFqHLXL5txHtOm9EU" aria-label="نماد اعتماد الکترونیکی">
+      <img referrerpolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=7969156&amp;Code=4E1Wj0YbW4VMCSzAFqHLXL5txHtOm9EU" alt="نماد اعتماد الکترونیکی" loading="lazy" decoding="async" style="cursor:pointer" code="4E1Wj0YbW4VMCSzAFqHLXL5txHtOm9EU">
+    </a>
+  </div>
+</footer>
 <script>
 (function(){
   const msg=document.querySelector('#contactForm textarea[name="message"]');
@@ -603,5 +610,59 @@
   buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');filter=btn.dataset.filter;render();}));
   search?.addEventListener('input',render); render();
 })();
-</script></body>
+</script>
+<script>
+(function(){
+  const btn=document.querySelector('.lang');
+  if(!btn)return;
+  const dict={
+    'خانه':'Home','درباره من':'About','خدمات':'Services','پروژه‌ها':'Projects','مهارت‌ها':'Skills','سوابق':'Experience','تماس':'Contact',
+    '↓ دانلود رزومه':'↓ Download CV','سلام، من':'Hi, I’m','ابوالفضل رجبی':'Abolfazl Rajabi','طراح وبسایت و متخصص خدمات دیجیتال':'Web Designer & Digital Services Specialist',
+    'ایده‌ها را به تجربه‌های دیجیتال تبدیل می‌کنم':'Turning Ideas Into Digital Experiences','مشاهده پروژه‌ها ↗':'View Projects ↗','تماس با من ➤':'Contact Me ➤',
+    'پروژه انجام شده':'Projects Completed','سال تجربه':'Years Experience','تعهد به کیفیت':'Commitment to Quality','پشتیبانی':'Support',
+    'ABOUT ME':'ABOUT ME','طراحی مدرن':'Modern Design','توسعه حرفه‌ای':'Professional Development','استقرار ابری':'Cloud Deployment','خدمات دیجیتال':'Digital Services',
+    'PROFILE':'PROFILE','نام':'Name','عنوان':'Title','موقعیت':'Location','تجربه':'Experience','MY JOURNEY':'MY JOURNEY','شروع مسیر':'Starting Point','توسعه مهارت‌ها':'Skill Development','امروز':'Today',
+    'MY SERVICES':'MY SERVICES','خدمات من':'My Services','راهکارهای حرفه‌ای و اختصاصی برای رشد کسب‌وکار و حضور قدرتمند در دنیای دیجیتال':'Professional solutions for business growth and a strong digital presence',
+    'از ایده تا اجرا، کنار شما هستم':'From idea to execution, I’m with you','طراحی وبسایت':'Web Design','توسعه وبسایت':'Web Development','استقرار و زیرساخت ابری':'Cloud Deployment & Infrastructure','سئو و بهینه‌سازی':'SEO & Optimization','مشاوره و راهکار دیجیتال':'Digital Consulting','پشتیبانی و نگهداری':'Support & Maintenance',
+    'مراحل همکاری':'Work Process','یک مسیر ساده تا رسیدن به نتیجه‌ای حرفه‌ای':'A simple path to a professional result','مشاوره و بررسی نیاز':'Consultation & Requirements','برنامه‌ریزی و طراحی':'Planning & Design','توسعه و اجرا':'Development & Implementation','تحویل و پشتیبانی':'Delivery & Support',
+    'MY PROJECTS':'MY PROJECTS','پروژه‌های من':'My Projects','نمونه‌ای از پروژه‌هایی که با دقت، خلاقیت و تمرکز روی کیفیت توسعه داده‌ام.':'Selected projects built with precision, creativity, and a focus on quality.',
+    'فروشگاه آنلاین':'Online Store','آقای موبایل':'Mr Mobile','مشاهده پروژه ↗':'View Project ↗','جزئیات بیشتر +':'More Details +','پروژه‌های بعدی شما':'Your Next Projects','فضای آماده برای اضافه کردن نمونه‌کارهای جدید':'Space ready for new projects',
+    'MY SKILLS':'MY SKILLS','مهارت‌های من':'My Skills','همیشه در حال یادگیری':'Always Learning','برای ساخت فردای بهتر':'Building a Better Tomorrow','توسعه وب':'Web Development','طراحی و تجربه کاربری':'UI/UX Design','زیرساخت و ابزارها':'Infrastructure & Tools',
+    'WORK EXPERIENCE':'WORK EXPERIENCE','سوابق کاری من':'My Experience','مسیر فعالیت حرفه‌ای، تجربه‌های واقعی و پروژه‌هایی که در حوزه وب انجام داده‌ام.':'My professional path, real-world experience, and web projects.',
+    'CONTACT ME':'CONTACT ME','تماس با من':'Contact Me','برای همکاری، مشاوره یا هر سوالی، خوشحال می‌شوم با من در ارتباط باشید.':'For collaboration, consulting, or any questions, feel free to contact me.',
+    'پاسخ‌گویی سریع':'Quick Response','معمولاً کمتر از ۲۴ ساعت':'Usually within 24 hours','ایمیل':'Email','تماس تلفنی':'Phone','تلگرام':'Telegram','اینستاگرام':'Instagram','موقعیت':'Location',
+    'ارسال پیام':'Send Message','نام شما *':'Your Name *','ایمیل شما *':'Your Email *','موضوع *':'Subject *','انتخاب کنید':'Select','پیام شما *':'Your Message *',
+    'خدمات دیجیتال':'Digital Services','مشاوره':'Consultation','همکاری':'Collaboration','همکاری در پروژه‌های جدید':'New Project Collaboration','مشاوره اولیه':'Initial Consultation','بررسی دقیق نیازها':'Detailed Requirements Review','ارائه راهکار مناسب':'Suitable Solution','پشتیبانی بلندمدت':'Long-term Support',
+    'ارتباط مستقیم':'Direct Communication','بدون واسطه، مستقیم با من':'Directly with me, no middleman','همکاری حرفه‌ای':'Professional Collaboration','متعهد به کیفیت و نتیجه':'Committed to quality and results','اطلاعات امن':'Secure Information','حفاظت از اطلاعات شما':'Your information is protected','پشتیبانی سریع':'Fast Support','پاسخ‌گویی در کوتاه‌ترین زمان':'Fast response time',
+    'محل فعالیت':'Location','همکاری از هر کجای دنیا':'Work from anywhere in the world','محدودیت مکانی نداریم':'No location limitations','محدودیت مکانی نداریم':'No location limitations'
+  };
+  const originals=new WeakMap();
+  function replaceText(root,toEnglish){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const nodes=[]; let n;
+    while(n=walker.nextNode()) nodes.push(n);
+    nodes.forEach(node=>{
+      if(!originals.has(node)) originals.set(node,node.nodeValue);
+      const original=originals.get(node);
+      if(toEnglish && dict[original.trim()]){
+        const leading=original.match(/^\s*/)?.[0]||'', trailing=original.match(/\s*$/)?.[0]||'';
+        node.nodeValue=leading+dict[original.trim()]+trailing;
+      }else if(!toEnglish){ node.nodeValue=original; }
+    });
+  }
+  function setEnglish(on){
+    replaceText(document.body,on);
+    document.documentElement.lang=on?'en':'fa';
+    document.documentElement.dir=on?'ltr':'rtl';
+    document.body.classList.toggle('english-mode',on);
+    btn.textContent=on?'FA':'EN';
+    document.title=on?'Abolfazl Rajabi | Web Developer':'Abolfazl Rajabi | Web Developer';
+    localStorage.setItem('site-language',on?'en':'fa');
+  }
+  const saved=localStorage.getItem('site-language');
+  if(saved==='en') setEnglish(true);
+  btn.addEventListener('click',()=>setEnglish(localStorage.getItem('site-language')!=='en'));
+})();
+</script>
+</body>
 </html>

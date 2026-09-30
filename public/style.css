@@ -1355,3 +1355,10 @@ footer{padding:30px;text-align:center;border-top:1px solid #15384f;color:#6f8799
 .skill-item .skill-brand-logo img[alt="HTML5"]{filter:none}
 .skill-item .skill-brand-logo img[alt="CSS3"]{filter:none}
 .skill-item .skill-brand-logo img[alt="JavaScript"]{filter:none}
+
+
+/* ENAMAD trust badge */
+footer .footer-inner{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
+footer .enamad-badge{display:inline-flex;align-items:center;justify-content:center;min-height:48px;text-decoration:none}
+footer .enamad-badge img{width:92px;height:auto;max-height:92px;object-fit:contain;display:block}
+@media(max-width:700px){footer .footer-inner{gap:10px}footer .enamad-badge img{width:82px}}
