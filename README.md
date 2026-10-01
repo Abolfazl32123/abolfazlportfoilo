@@ -14,3 +14,6 @@ Deploy with Cloudflare Workers using the included wrangler configuration.
 
 
 V21: Services redesigned with real brand logos (Figma, VS Code, Cloudflare, Google Search Console) and visual icons for consulting/support.
+
+
+V38: fixed mobile horizontal overflow, stabilized 2x2 process cards across phone widths, aligned hero contact icons above the location, and added a local fallback for the eNAMAD badge while preserving the official clickable badge URL.

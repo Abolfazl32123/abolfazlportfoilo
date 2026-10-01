@@ -1722,3 +1722,105 @@ footer .enamad-badge img{
   footer .enamad-badge{width:100px !important;height:100px !important;min-width:100px !important;min-height:100px !important}
   footer .enamad-badge img{width:100px !important;height:100px !important;max-width:100px !important;max-height:100px !important}
 }
+
+
+/* =========================================================
+   V38 — final responsive/overflow + hero contact + eNAMAD pass
+   ========================================================= */
+html,body{
+  width:100% !important;
+  max-width:100% !important;
+  overflow-x:hidden !important;
+}
+*,*::before,*::after{max-width:100%;}
+img,svg,iframe,video,canvas{max-width:100%;}
+
+/* Hero contact row: sit above the location, aligned to the right. */
+.hero-right .contact-icons{
+  width:max-content !important;
+  max-width:100% !important;
+  margin-top:14px !important;
+  margin-right:0 !important;
+  margin-left:auto !important;
+  justify-content:flex-start !important;
+  align-self:flex-end !important;
+}
+.hero-right .location{
+  width:100% !important;
+  text-align:right !important;
+  margin-top:9px !important;
+}
+
+/* Process: desktop stays 1 → 2 → 3 → 4. Mobile is always a clean 2×2 grid.
+   Explicitly reset old nth-of-type column rules that pushed card 04 into column 3. */
+@media(max-width:700px){
+  .services-section,.skills-section,.experience-section,.contact-section,.projects-section,.about-section,.hero{
+    width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+  }
+  .process-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:auto auto !important;
+    grid-auto-flow:row !important;
+    width:100% !important;
+    max-width:100% !important;
+    gap:12px !important;
+    padding:0 !important;
+    margin:0 !important;
+    direction:ltr !important;
+    overflow:visible !important;
+  }
+  .process-grid .process-arrow{display:none !important;}
+  .process-grid .process-card,
+  .process-grid .process-card:nth-of-type(1),
+  .process-grid .process-card:nth-of-type(3),
+  .process-grid .process-card:nth-of-type(5),
+  .process-grid .process-card:nth-of-type(7){
+    grid-column:auto !important;
+    grid-row:auto !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    height:155px !important;
+    min-height:155px !important;
+    margin:0 !important;
+    padding:12px !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+  }
+  .process-grid .process-card>div:last-child{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .process-grid .process-card b,
+  .process-grid .process-card small{
+    max-width:100% !important;
+    overflow-wrap:anywhere !important;
+    word-break:normal !important;
+  }
+
+  /* Small-phone hardening: cards remain inside the viewport at 320–360px. */
+  .services-section{padding-left:14px !important;padding-right:14px !important;}
+  .process-grid{gap:8px !important;}
+  .process-grid .process-card{height:150px !important;min-height:150px !important;padding:10px !important;}
+  .process-grid .process-icon{width:46px !important;height:46px !important;min-width:46px !important;min-height:46px !important;}
+  .process-grid .process-icon img{width:23px !important;height:23px !important;max-width:23px !important;max-height:23px !important;}
+  .process-grid .process-card b{font-size:10px !important;line-height:1.65 !important;}
+  .process-grid .process-card small{font-size:7.5px !important;line-height:1.7 !important;}
+  .process-grid .process-card>span{top:9px !important;right:9px !important;}
+
+  /* Never allow a wide child to create horizontal page scrolling. */
+  .hero-left,.hero-right,.section,.services-section,.skills-section,.experience-section,.contact-section,.projects-section,
+  .service-card,.service-body,.contact-layout,.contact-info,.contact-form,.contact-cta-card,.contact-location,
+  .projects-layout,.projects-future-space,.project-card,.project-content,.footer-inner{
+    min-width:0 !important;
+  }
+  .hero-right .contact-icons{margin-right:0 !important;margin-left:auto !important;}
+}
+
+/* eNAMAD: official remote badge when available, local visual fallback when the trustseal host is unavailable. */
+footer .enamad-badge img{background:transparent !important;}
