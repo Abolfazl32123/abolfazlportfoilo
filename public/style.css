@@ -1598,58 +1598,55 @@ footer .enamad-badge img:not([src=""]){background:transparent}
 .footer-contact-icons a:nth-child(3) img{width:21px !important;height:21px !important}
 .footer-contact-icons a:nth-child(4) img{width:21px !important;height:21px !important}
 
-/* 7) eNAMAD: clean, non-overlapping footer layout and official clickable badge. */
-footer{padding:24px 30px !important}
+/* 7) eNAMAD: official badge centered, isolated, clickable, and never overlapping footer text. */
+footer{padding:22px 20px 26px !important}
 footer .footer-inner{
   width:min(1100px,100%) !important;
   margin:0 auto !important;
-  min-height:100px !important;
-  display:grid !important;
-  grid-template-columns:1fr auto !important;
+  min-height:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
   align-items:center !important;
-  gap:28px !important;
+  justify-content:center !important;
+  gap:12px !important;
   direction:rtl !important;
-  text-align:right !important;
+  text-align:center !important;
 }
-footer .footer-inner > span{font-size:10px !important;line-height:1.9 !important}
-footer .enamad-badge{
-  width:96px !important;
-  height:96px !important;
-  min-width:96px !important;
-  min-height:96px !important;
-  padding:6px !important;
+footer .footer-inner > span{
+  order:2 !important;
+  display:block !important;
+  font-size:10px !important;
+  line-height:1.9 !important;
   margin:0 !important;
-  display:grid !important;
-  place-items:center !important;
+}
+footer .enamad-badge{
+  order:1 !important;
+  width:100px !important;
+  height:100px !important;
+  min-width:100px !important;
+  min-height:100px !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
   box-sizing:border-box !important;
   overflow:hidden !important;
-  border:1px solid #17638b !important;
-  border-radius:14px !important;
-  background:#061824 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  text-decoration:none !important;
+  line-height:0 !important;
 }
 footer .enamad-badge img{
-  width:82px !important;
-  height:82px !important;
-  max-width:82px !important;
-  max-height:82px !important;
+  width:100px !important;
+  height:100px !important;
+  max-width:100px !important;
+  max-height:100px !important;
   object-fit:contain !important;
   display:block !important;
   margin:0 !important;
-  position:relative !important;
-  z-index:2 !important;
-}
-footer .enamad-fallback{
-  position:absolute !important;
-  inset:6px !important;
-  display:grid !important;
-  place-items:center !important;
-  text-align:center !important;
-  padding:8px !important;
-  color:#78b8d4 !important;
-  font-size:8px !important;
-  line-height:1.8 !important;
-  z-index:1 !important;
-  pointer-events:none !important;
+  border:0 !important;
 }
 
 /* 8) Mobile: service/process/contact/footer remain inside the viewport. */
@@ -1714,12 +1711,14 @@ footer .enamad-fallback{
   .footer-contact-icons a img{width:19px !important;height:19px !important;max-width:19px !important;max-height:19px !important}
 
   footer .footer-inner{
-    grid-template-columns:1fr !important;
-    justify-items:center !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
     text-align:center !important;
-    gap:14px !important;
+    gap:10px !important;
     min-height:0 !important;
   }
-  footer .enamad-badge{width:88px !important;height:88px !important;min-width:88px !important;min-height:88px !important}
-  footer .enamad-badge img{width:74px !important;height:74px !important;max-width:74px !important;max-height:74px !important}
+  footer .enamad-badge{width:100px !important;height:100px !important;min-width:100px !important;min-height:100px !important}
+  footer .enamad-badge img{width:100px !important;height:100px !important;max-width:100px !important;max-height:100px !important}
 }
